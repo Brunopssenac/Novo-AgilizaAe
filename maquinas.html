@@ -5,18 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Localizar Máquinas - AgilizaAê</title>
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="maquinas.css">
-
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
-    <!-- Leaflet JS — deve vir ANTES de maquina.js -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="stylesheet" href="all.css">
 </head>
 
-<body>
+<link rel="stylesheet" href="all.css">
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<!-- Leaflet JS — deve vir ANTES de maquina.js -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body class="page-maquinas">
 
     <!-- CARRINHO -->
     <div id="carrinho" class="carrinho">
@@ -55,6 +60,8 @@
         <div class="logo">
             <a href="home.html">Agiliza<span>Aê</span></a>
         </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
 
         <nav class="menu">
             <a href="maquinas.html" class="ativo">Máquinas</a>
@@ -188,6 +195,7 @@
 
     <script src="maquina.js"></script>
 
+    <script src="menu.js" defer></script>
 </body>
 
 </html>

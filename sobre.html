@@ -5,19 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre - AgilizaAê</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="sobre.css">
-</head>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="all.css">
+</head>>
 
 <!-- pagina institucional, so conteudo estatico (sem forms nem JS) -->
 
-<body>
+<body class="page-sobre">
 
     <header class="header">
 
         <div class="logo">
             <a href="home.html">Agiliza<span>Aê</span></a>
         </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
 
         <nav class="menu">
             <a href="maquinas.html">Máquinas</a>
@@ -236,6 +242,7 @@
 
     </main>
 
+    <script src="menu.js" defer></script>
 </body>
 
 </html>

@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Parceiro - AgilizaAê</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="dashboard-parceiro.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="all.css">
 </head>
 
 <body class="dash-body">
@@ -51,11 +55,14 @@
 
     </aside>
 
+    <div class="dash-overlay" id="dashOverlay"></div>
+
     <!-- CONTEÚDO -->
     <main class="dash-main">
 
         <!-- HEADER -->
         <div class="dash-header">
+            <button class="dash-sidebar-toggle" id="dashSidebarToggle" aria-label="Abrir menu">☰</button>
             <div>
                 <h1 id="dash-titulo">Visão geral</h1>
                 <p id="dash-subtitulo">Bem-vindo de volta, Pão Sabor 👋</p>
@@ -386,6 +393,38 @@
     </main>
 
     <script src="dashboard-parceiro.js"></script>
+
+    <script>
+        // Menu lateral (sidebar) em modo off-canvas para tablet/mobile
+        (function () {
+            const sidebar = document.querySelector('.dash-sidebar');
+            const toggle = document.getElementById('dashSidebarToggle');
+            const overlay = document.getElementById('dashOverlay');
+            if (!sidebar || !toggle || !overlay) return;
+
+            function abrir() {
+                sidebar.classList.add('aberto');
+                overlay.classList.add('ativo');
+            }
+
+            function fechar() {
+                sidebar.classList.remove('aberto');
+                overlay.classList.remove('ativo');
+            }
+
+            toggle.addEventListener('click', abrir);
+            overlay.addEventListener('click', fechar);
+
+            // fecha ao escolher um item do menu (útil em telas pequenas)
+            sidebar.querySelectorAll('.dash-nav-item').forEach(item => {
+                item.addEventListener('click', fechar);
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 900) fechar();
+            });
+        })();
+    </script>
 
 </body>
 

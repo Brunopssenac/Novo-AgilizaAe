@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Parceiro - AgilizaAê</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="auth.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="all.css">
 </head>
 
 <body class="auth-body">
@@ -17,6 +21,8 @@
             <a href="home.html">Agiliza<span>Aê</span></a>
         </div>
 
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+
         <nav class="menu">
             <a href="maquinas.html">Máquinas</a>
             <a href="sobre.html">Sobre</a>
@@ -24,7 +30,7 @@
         </nav>
 
         <div class="acoes">
-            <a href="parceiros.html" class="btn-carrinho">Seja um parceiro</a>
+            <a href="parceiros.html" class="btn-entrar">Seja um parceiro</a>
         </div>
 
     </header>
@@ -180,6 +186,7 @@
         });
     </script>
 
+    <script src="menu.js" defer></script>
 </body>
 
 </html>
