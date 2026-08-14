@@ -1,0 +1,186 @@
+/* ============================================
+   esqueci-senha.css — AgilizaAê
+   Complementa auth.css com os estilos
+   exclusivos da tela de recuperação de senha
+   ============================================ */
+
+/* ─── TELA DE CONFIRMAÇÃO ─── */
+
+.es-confirmacao {
+    text-align: center;
+}
+
+.es-confirmacao .auth-titulo p {
+    margin-bottom: 4px;
+}
+
+/* ─── ÍCONE ENVELOPE ANIMADO ─── */
+
+.es-icone-envelope {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+}
+
+.es-envelope {
+    font-size: 56px;
+    line-height: 1;
+    animation: balanco 2.5s ease-in-out infinite;
+}
+
+@keyframes balanco {
+    0%,  100% { transform: rotate(-4deg) translateY(0);   }
+    25%        { transform: rotate(4deg)  translateY(-4px); }
+    50%        { transform: rotate(-2deg) translateY(0);   }
+    75%        { transform: rotate(3deg)  translateY(-2px); }
+}
+
+.es-ondas {
+    position: absolute;
+    top: 8px;
+    right: -8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.es-ondas span {
+    display: block;
+    height: 2px;
+    border-radius: 2px;
+    background: #ff5a1f;
+    animation: onda 1.4s ease-in-out infinite;
+    opacity: 0;
+}
+
+.es-ondas span:nth-child(1) { width: 12px; animation-delay: 0s;    }
+.es-ondas span:nth-child(2) { width: 18px; animation-delay: 0.18s; }
+.es-ondas span:nth-child(3) { width: 12px; animation-delay: 0.36s; }
+
+@keyframes onda {
+    0%        { opacity: 0;   transform: translateX(0);   }
+    30%, 60%  { opacity: 1;   transform: translateX(4px); }
+    100%      { opacity: 0;   transform: translateX(10px);}
+}
+
+/* ─── E-MAIL DESTACADO ─── */
+
+.es-email-destino {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ff5a1f;
+    word-break: break-all;
+}
+
+/* ─── INSTRUÇÕES ─── */
+
+.es-instrucoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 24px 0;
+    text-align: left;
+}
+
+.es-instrucao-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.es-instrucao-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff3ef;
+    color: #ff5a1f;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    border: 1.5px solid #ffd8c9;
+}
+
+.es-instrucao-item p {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* ─── AVISO SPAM ─── */
+
+.es-aviso {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: #fafaf9;
+    border: 1px solid #ebebeb;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.es-aviso span {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.es-aviso p {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* ─── AÇÕES DA CONFIRMAÇÃO ─── */
+
+.es-acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.es-acoes .btn-auth {
+    width: 100%;
+}
+
+.es-link-voltar {
+    font-size: 13px;
+    color: #888;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.15s;
+}
+
+.es-link-voltar:hover {
+    color: #1a1a1a;
+}
+
+/* ─── TIMER DE REENVIO ─── */
+
+.es-timer {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 10px;
+    min-height: 18px;
+    text-align: center;
+}
+
+/* ─── TRANSIÇÃO ENTRE TELAS ─── */
+
+#tela-formulario,
+#tela-confirmacao {
+    animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0);   }
+}

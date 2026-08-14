@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar - AgilizaAê</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+
+<body class="auth-body">
+
+    <header class="header">
+
+        <div class="logo">
+            <a href="home.html">Agiliza<span>Aê</span></a>
+        </div>
+
+        <nav class="menu">
+            <a href="maquinas.html">Máquinas</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="parceiros.html">Parceiros</a>
+        </nav>
+
+        <div class="acoes">
+            <a href="cadastro.html" class="btn-cadastrar">Cadastrar</a>
+        </div>
+
+    </header>
+
+    <main class="auth-main auth-main--centralizado">
+
+        <div class="auth-card auth-card--pequeno">
+
+            <div class="auth-logo">
+                <span class="auth-logo-icone">🛒</span>
+                <h1>Agiliza<span>Aê</span></h1>
+            </div>
+
+            <div class="auth-titulo">
+                <h2>Bem-vindo de volta</h2>
+                <p>Entre com seus dados para continuar</p>
+            </div>
+
+            <form id="formLogin" novalidate>
+
+                <div class="auth-secao">
+
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+                        <input id="email" type="email" placeholder="joao@email.com" autocomplete="email">
+                        <span class="erro" id="erro-email"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="senha">Senha</label>
+                        <div class="input-senha">
+                            <input id="senha" type="password" placeholder="Sua senha" autocomplete="current-password">
+                            <button type="button" class="toggle-senha" data-alvo="senha">👁</button>
+                        </div>
+                        <span class="erro" id="erro-senha"></span>
+                    </div>
+
+                    <div class="login-opcoes">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="lembrar">
+                            Lembrar de mim
+                        </label>
+                        <a href="esqueci-senha.html" class="link-esqueci">Esqueci a senha</a>
+                    </div>
+
+                </div>
+
+                <div class="auth-acoes">
+                    <button type="submit" class="btn-auth" id="btnEntrar">
+                        <span class="btn-texto">Entrar</span>
+                        <span class="btn-loading" hidden>Aguarde...</span>
+                    </button>
+                </div>
+
+                <div class="divisor">
+                    <span>ou continue com</span>
+                </div>
+
+                <div class="social-login">
+                    <button type="button" class="btn-social">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google"
+                            width="20">
+                        Google
+                    </button>
+                </div>
+
+                <p class="auth-link">
+                    Não tem conta? <a href="cadastro.html">Cadastre-se grátis</a>
+                </p>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <script src="auth.js"></script>
+
+</body>
+
+</html>

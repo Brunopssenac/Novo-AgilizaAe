@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Parceiro - AgilizaAê</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard-parceiro.css">
+</head>
+
+<body class="dash-body">
+
+    <!-- SIDEBAR -->
+    <aside class="dash-sidebar">
+
+        <div class="dash-logo">
+            <a href="home.html">Agiliza<span>Aê</span></a>
+        </div>
+
+        <div class="dash-perfil">
+            <div class="dash-avatar">PS</div>
+            <div>
+                <strong>Pão Sabor</strong>
+                <span>Parceiro ativo</span>
+            </div>
+        </div>
+
+        <nav class="dash-nav">
+            <a href="#" class="dash-nav-item ativo" data-secao="visao-geral">
+                <span>📊</span> Visão geral
+            </a>
+            <a href="#" class="dash-nav-item" data-secao="vendas">
+                <span>🛒</span> Vendas
+            </a>
+            <a href="#" class="dash-nav-item" data-secao="produtos">
+                <span>📦</span> Produtos
+            </a>
+            <a href="#" class="dash-nav-item" data-secao="impacto">
+                <span>🌱</span> Impacto ESG
+            </a>
+            <a href="#" class="dash-nav-item" data-secao="maquinas">
+                <span>🤖</span> Minhas máquinas
+            </a>
+            <a href="#" class="dash-nav-item" data-secao="financeiro">
+                <span>💰</span> Financeiro
+            </a>
+        </nav>
+
+        <a href="parceiros.html" class="dash-sair">← Sair</a>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <main class="dash-main">
+
+        <!-- HEADER -->
+        <div class="dash-header">
+            <div>
+                <h1 id="dash-titulo">Visão geral</h1>
+                <p id="dash-subtitulo">Bem-vindo de volta, Pão Sabor 👋</p>
+            </div>
+            <div class="dash-header-acoes">
+                <select class="dash-periodo">
+                    <option>Últimos 7 dias</option>
+                    <option selected>Últimos 30 dias</option>
+                    <option>Últimos 90 dias</option>
+                    <option>Este ano</option>
+                </select>
+                <button class="dash-btn-export">⬇ Exportar</button>
+            </div>
+        </div>
+
+        <!-- ========================= -->
+        <!-- SEÇÃO: VISÃO GERAL        -->
+        <!-- ========================= -->
+        <section class="dash-secao ativo" id="secao-visao-geral">
+
+            <!-- MÉTRICAS -->
+            <div class="dash-metricas">
+
+                <div class="metrica-card">
+                    <div class="metrica-icone" style="background:#fff3ef">💰</div>
+                    <div>
+                        <span>Receita do período</span>
+                        <strong>R$ 3.840,00</strong>
+                        <small class="positivo">▲ 12% vs mês anterior</small>
+                    </div>
+                </div>
+
+                <div class="metrica-card">
+                    <div class="metrica-icone" style="background:#e8f5e9">🛒</div>
+                    <div>
+                        <span>Vendas realizadas</span>
+                        <strong>348</strong>
+                        <small class="positivo">▲ 8% vs mês anterior</small>
+                    </div>
+                </div>
+
+                <div class="metrica-card">
+                    <div class="metrica-icone" style="background:#e8f0fe">📦</div>
+                    <div>
+                        <span>Produtos salvos</span>
+                        <strong>412</strong>
+                        <small class="positivo">▲ 20% vs mês anterior</small>
+                    </div>
+                </div>
+
+                <div class="metrica-card">
+                    <div class="metrica-icone" style="background:#f3e5f5">🌱</div>
+                    <div>
+                        <span>CO₂ evitado</span>
+                        <strong>82 kg</strong>
+                        <small class="positivo">▲ 15% vs mês anterior</small>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- GRÁFICO + RANKING -->
+            <div class="dash-linha-dupla">
+
+                <div class="dash-card">
+                    <div class="dash-card-titulo">
+                        <h3>Vendas por dia</h3>
+                    </div>
+                    <div class="grafico-barras" id="graficoDia"></div>
+                </div>
+
+                <div class="dash-card">
+                    <div class="dash-card-titulo">
+                        <h3>Produtos mais vendidos</h3>
+                    </div>
+                    <div class="ranking-lista" id="rankingProdutos"></div>
+                </div>
+
+            </div>
+
+            <!-- ÚLTIMAS VENDAS -->
+            <div class="dash-card">
+                <div class="dash-card-titulo">
+                    <h3>Últimas vendas</h3>
+                    <a href="#" class="dash-ver-mais" data-goto="vendas">Ver todas →</a>
+                </div>
+                <table class="dash-tabela">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Máquina</th>
+                            <th>Data</th>
+                            <th>Valor</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaUltimasVendas"></tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- SEÇÃO: VENDAS             -->
+        <!-- ========================= -->
+        <section class="dash-secao" id="secao-vendas">
+
+            <div class="dash-metricas">
+                <div class="metrica-card">
+                    <div class="metrica-icone" style="background:#fff3ef">💰</div>
+                    <div>
+                        <span>Total vendido</span>
+                        <strong>R$ 3.840,00</strong>
+                        <small class="positivo">▲ 12%</small>
+                    </div>
+                </div>
+                <div class="metrica-card">
+                    <div class="metrica-icone" style="background:#e8f5e9">🛒</div>
+                    <div>
+                        <span>Nº de vendas</span>
+                        <strong>348</strong>
+                        <small class="positivo">▲ 8%</small>
+                    </div>
+                </div>
+                <div class="metrica-card">
+                    <div class="metrica-icone" style="background:#e8f0fe">🎯</div>
+                    <div>
+                        <span>Ticket médio</span>
+                        <strong>R$ 11,03</strong>
+                        <small class="neutro">= estável</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <div class="dash-card-titulo">
+                    <h3>Histórico de vendas</h3>
+                    <input type="text" class="dash-busca-input" placeholder="🔍 Buscar produto...">
+                </div>
+                <table class="dash-tabela">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Máquina</th>
+                            <th>Data</th>
+                            <th>Qtd</th>
+                            <th>Valor unit.</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaVendas"></tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- SEÇÃO: PRODUTOS           -->
+        <!-- ========================= -->
+        <section class="dash-secao" id="secao-produtos">
+
+            <div class="dash-card-titulo" style="margin-bottom:20px">
+                <h3 style="font-size:18px; font-weight:700;">Meus produtos cadastrados</h3>
+                <button class="dash-btn-novo" id="btnNovoProduto">+ Novo produto</button>
+            </div>
+
+            <div class="produtos-parceiro-grid" id="produtosParceiro"></div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- SEÇÃO: IMPACTO ESG        -->
+        <!-- ========================= -->
+        <section class="dash-secao" id="secao-impacto">
+
+            <div class="impacto-esg-hero">
+                <span>🌍</span>
+                <div>
+                    <h2>Seu impacto ambiental</h2>
+                    <p>Veja o quanto sua empresa já contribuiu para um mundo melhor</p>
+                </div>
+            </div>
+
+            <div class="dash-metricas">
+                <div class="metrica-card">
+                    <div class="metrica-icone" style="background:#e8f5e9">🌱</div>
+                    <div>
+                        <span>CO₂ evitado</span>
+                        <strong>82 kg</strong>
+                        <small class="positivo">equivale a 8 árvores plantadas</small>
+                    </div>
+                </div>
+                <div class="metrica-card">
+                    <div class="metrica-icone" style="background:#e3f2fd">💧</div>
+                    <div>
+                        <span>Água economizada</span>
+                        <strong>1.240 L</strong>
+                        <small class="positivo">▲ 18% vs mês anterior</small>
+                    </div>
+                </div>
+                <div class="metrica-card">
+                    <div class="metrica-icone" style="background:#fff3ef">📦</div>
+                    <div>
+                        <span>Alimentos salvos</span>
+                        <strong>412 itens</strong>
+                        <small class="positivo">▲ 20% vs mês anterior</small>
+                    </div>
+                </div>
+                <div class="metrica-card">
+                    <div class="metrica-icone" style="background:#fce4ec">♻️</div>
+                    <div>
+                        <span>Embalagens recicladas</span>
+                        <strong>348 un.</strong>
+                        <small class="positivo">100% das vendas</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-linha-dupla">
+
+                <div class="dash-card">
+                    <div class="dash-card-titulo">
+                        <h3>Evolução do impacto</h3>
+                    </div>
+                    <div class="esg-barras" id="esgBarras"></div>
+                </div>
+
+                <div class="dash-card">
+                    <div class="dash-card-titulo">
+                        <h3>Certificados disponíveis</h3>
+                    </div>
+                    <div class="certificados-lista">
+                        <div class="certificado-item">
+                            <span>🏆</span>
+                            <div>
+                                <strong>Parceiro Sustentável 2024</strong>
+                                <p>Mais de 300 itens salvos no ano</p>
+                            </div>
+                            <button class="cert-btn">Baixar</button>
+                        </div>
+                        <div class="certificado-item">
+                            <span>🌿</span>
+                            <div>
+                                <strong>Zero Desperdício — Nível Bronze</strong>
+                                <p>Atingiu meta mensal por 3 meses</p>
+                            </div>
+                            <button class="cert-btn">Baixar</button>
+                        </div>
+                        <div class="certificado-item certificado-item--bloqueado">
+                            <span>⭐</span>
+                            <div>
+                                <strong>Zero Desperdício — Nível Prata</strong>
+                                <p>Faltam 88 itens para desbloquear</p>
+                            </div>
+                            <button class="cert-btn" disabled>Bloqueado</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- SEÇÃO: MÁQUINAS          -->
+        <!-- ========================= -->
+        <section class="dash-secao" id="secao-maquinas">
+
+            <div class="maquinas-parc-grid" id="maquinasParceiro"></div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- SEÇÃO: FINANCEIRO         -->
+        <!-- ========================= -->
+        <section class="dash-secao" id="secao-financeiro">
+
+            <div class="dash-metricas">
+                <div class="metrica-card">
+                    <div class="metrica-icone" style="background:#e8f5e9">💳</div>
+                    <div>
+                        <span>Saldo disponível</span>
+                        <strong>R$ 2.688,00</strong>
+                        <small class="positivo">Pronto para saque</small>
+                    </div>
+                </div>
+                <div class="metrica-card">
+                    <div class="metrica-icone" style="background:#fff3ef">⏳</div>
+                    <div>
+                        <span>A receber</span>
+                        <strong>R$ 1.152,00</strong>
+                        <small class="neutro">Próximo repasse: 5 dias</small>
+                    </div>
+                </div>
+                <div class="metrica-card">
+                    <div class="metrica-icone" style="background:#e8f0fe">📈</div>
+                    <div>
+                        <span>Total recebido (ano)</span>
+                        <strong>R$ 28.440,00</strong>
+                        <small class="positivo">▲ 34% vs ano anterior</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <div class="dash-card-titulo">
+                    <h3>Histórico de repasses</h3>
+                    <button class="dash-btn-export">⬇ Exportar</button>
+                </div>
+                <table class="dash-tabela">
+                    <thead>
+                        <tr>
+                            <th>Período</th>
+                            <th>Vendas</th>
+                            <th>Comissão AgilizaAê (30%)</th>
+                            <th>Seu valor (70%)</th>
+                            <th>Status</th>
+                            <th>Data do repasse</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaRepasses"></tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="dashboard-parceiro.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+# AgilizaAê — Resumo do projeto
+
+Resumo geral das 13 páginas do site/app, pra te ajudar a organizar a apresentação. Separei por página, com o que existe, o que é só mock/fixo (bom pra citar como "próximos passos") e um roteiro de fala no final.
+
+---
+
+## Páginas públicas (visitante não logado)
+
+### home.html
+- Hero principal com proposta de valor e 2 CTAs (Localizar máquina / Como funciona).
+- Contador animado nas estatísticas (1.240 máquinas, 98% satisfação, 4,2t de alimentos salvos) — sobe de 0 até o valor via JS.
+- Card lateral simulando uma máquina próxima, com "prova social" flutuante (notificação de compra).
+- **Pra falar na apresentação:** os números da máquina de exemplo e a notificação de compra são estáticos — dá pra evoluir puxando dados reais depois.
+
+### como-funciona.html
+- Página 100% institucional/estática, sem formulário.
+- 4 passos ilustrados (encontrar → escolher → pagar → retirar).
+- Grid de benefícios (6 cards) e bloco de números de impacto.
+- **Pra falar:** é a página que resolve objeção de quem não conhece o modelo — bom mostrar antes da demo do fluxo de compra.
+
+### sobre.html
+- Institucional: missão/visão/valores, linha do tempo (2022–2025) e time.
+- Avatares do time são iniciais com fundo colorido (não são fotos reais ainda).
+- **Pra falar:** reforça storytelling e números de impacto, útil pra parte de "propósito" da apresentação.
+
+---
+
+## Fluxo do cliente
+
+### cadastro.html
+- Formulário de cadastro dividido em 3 blocos: acesso, dados pessoais, endereço.
+- Botão de CEP integrado (busca automática de rua/bairro/cidade/estado).
+- Confirmação de senha e mostrar/ocultar senha.
+- **Pra falar:** validação é toda client-side (`auth.js`), sem backend ainda — bom deixar claro que é protótipo funcional.
+
+### login.html
+- Login simples com opção "lembrar de mim" e link de recuperação de senha.
+- Botão de login social (Google) — só visual, não integrado.
+- **Pra falar:** deixar explícito que o login social é mockup, senão pode dar impressão de que já funciona.
+
+### esqueci-senha.html
+- Fluxo em 2 telas na mesma página (formulário → confirmação de envio), sem reload.
+- Timer de reenvio de e-mail e instruções passo a passo.
+- **Pra falar:** simula bem a experiência real de recuperação de senha, mesmo sem enviar e-mail de verdade.
+
+### maquinas.html
+- Núcleo do produto: mapa (Leaflet) + lista de máquinas + carrinho lateral.
+- Busca por bairro/número e filtros rápidos (próximos, promoção, ESG).
+- Abas para alternar entre visão de mapa e grade de produtos.
+- **Pra falar:** as 3 máquinas exibidas são fixas no HTML (mock); é o ponto principal pra explicar como ficaria com dados reais/API de geolocalização.
+
+### checkout.html
+- Checkout guiado em 4 etapas: pagamento (Pix/Cartão) → tempo de reserva → cupom → resumo final.
+- Resumo do pedido lateral com subtotal, desconto e total.
+- **Pra falar:** cupons válidos e formas de pagamento estão fixos no JS — mostrar como seria plugar um gateway de pagamento real.
+
+### cliente.html
+- Área logada do cliente, funciona como uma mini SPA (uma página só, seções trocam pelo menu lateral).
+- Seções: início (métricas + impacto), pedidos, cartões salvos, perfil, impacto ambiental (com "conquistas").
+- **Pra falar:** dados do usuário (João da Silva) são mockados — é o template de como fica a conta depois do login de verdade.
+
+---
+
+## Fluxo do parceiro (empresa)
+
+### parceiros.html
+- Landing de vendas do programa de parceiros, com argumentos (receita extra, ESG, dashboard).
+- Formulário de "interesse" mais simples — é só pra captar lead, não é o cadastro completo.
+- **Pra falar:** deixar claro a diferença entre esse formulário (lead) e o cadastro completo (`cadastro-parceiro.html`).
+
+### cadastro-parceiro.html
+- Cadastro completo em 4 etapas: dados da empresa → responsável → tipos de produto → acesso.
+- Inclui CNPJ, busca de CEP, categorias de produto (checkbox), volume/frequência de fornecimento.
+- Resumo final antes de enviar + aceite de termos.
+- **Pra falar:** esse é o formulário "de verdade" pra empresa virar parceira — mostra o cuidado de qualificar o parceiro antes de aprovar.
+
+### login-parceiro.html
+- Login específico da empresa parceira, com identificação da empresa vinculada (nome + CNPJ + status).
+- Redireciona para o dashboard após autenticar.
+- **Pra falar:** reforçar que o acesso do parceiro é separado do acesso do cliente (dois públicos, duas experiências).
+
+### dashboard-parceiro.html
+- Painel completo do parceiro: visão geral, vendas, produtos, impacto ESG, máquinas, financeiro.
+- Métricas com variação percentual, gráfico de vendas por dia (feito com barras CSS, não canvas/lib externa), ranking de produtos, tabela de últimas vendas.
+- **Pra falar:** todos os números são fixos (mock) — é o ponto forte pra mostrar a visão de "gestão" que a empresa parceira teria.
+
+---
+
+## Roteiro sugerido pra apresentação
+
+1. **Abra pela home** — proposta de valor e números de impacto.
+2. **Como funciona** — contexto rápido do modelo de negócio.
+3. **Fluxo do cliente**: cadastro → login → localizar máquina → carrinho → checkout → área da conta.
+4. **Fluxo do parceiro**: landing de parceiros → cadastro da empresa → login → dashboard.
+5. **Fechar com sobre.html** — reforça propósito/impacto e história da empresa.
+
+### Pontos importantes pra deixar claros na fala
+- O projeto é um **protótipo de front-end**: toda validação de formulário, cálculo de desconto, dados de máquina/produto e métricas do dashboard estão no JavaScript local ou fixos no HTML — não existe backend/banco de dados ainda.
+- Login social (Google), CEP automático e envio de e-mail de recuperação são **simulados**.
+- A estrutura já está pronta pra plugar uma API real: os IDs e classes usados no HTML (`id="listaMaquinas"`, `id="gridProdutos"`, etc.) já indicam onde os dados dinâmicos vão entrar.
+- Os dois públicos (cliente e parceiro) têm jornadas completamente separadas: cadastro, login e área logada próprios pra cada um.

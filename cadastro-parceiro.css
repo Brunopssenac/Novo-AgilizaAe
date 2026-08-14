@@ -1,0 +1,343 @@
+/* ============================================
+   cadastro-parceiro.css — AgilizaAê
+   Complementa auth.css com os estilos
+   exclusivos do formulário multietapas
+   ============================================ */
+
+/* ─── CARD LARGO ─── */
+
+.cp-card {
+    max-width: 780px;
+}
+
+/* ─── TOPO: LOGO + BADGE ─── */
+
+.cp-topo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.cp-badge {
+    background: #fff3ef;
+    color: #ff5a1f;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+}
+
+/* ─── STEPS ─── */
+
+.cp-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 20px 0 28px;
+}
+
+.cp-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #bbb;
+    transition: color 0.25s;
+    min-width: 72px;
+}
+
+.cp-step.ativo {
+    color: #ff5a1f;
+}
+
+.cp-step.concluido {
+    color: #2e7d32;
+}
+
+.cp-step-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.cp-step.ativo .cp-step-num {
+    background: #ff5a1f;
+    color: #fff;
+    border-color: #ff5a1f;
+}
+
+.cp-step.concluido .cp-step-num {
+    background: #2e7d32;
+    color: #fff;
+    border-color: #2e7d32;
+}
+
+.cp-step-linha {
+    flex: 1;
+    height: 2px;
+    background: #e8e5e0;
+    margin-bottom: 20px;
+    min-width: 32px;
+    transition: background 0.25s;
+}
+
+.cp-step-linha.ativa {
+    background: #2e7d32;
+}
+
+/* ─── ETAPAS ─── */
+
+.cp-etapa {
+    display: none;
+}
+
+.cp-etapa.ativa {
+    display: block;
+    animation: fadeEtapa 0.2s ease;
+}
+
+@keyframes fadeEtapa {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── SECAO DESC ─── */
+
+.auth-secao-desc {
+    font-size: 13px;
+    color: #888;
+    margin: -10px 0 14px;
+}
+
+/* ─── TEXTAREA ─── */
+
+textarea {
+    border: 1.5px solid #e0ddd8;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #1a1a1a;
+    background: #fff;
+    outline: none;
+    transition: border-color 0.15s;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 80px;
+    width: 100%;
+}
+
+textarea:focus {
+    border-color: #ff5a1f;
+}
+
+textarea::placeholder {
+    color: #ccc;
+}
+
+/* ─── GRID DE CATEGORIAS ─── */
+
+.cp-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.cp-categoria {
+    cursor: pointer;
+}
+
+.cp-categoria input[type="checkbox"] {
+    display: none;
+}
+
+.cp-categoria-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    padding: 14px 10px;
+    border: 1.5px solid #e0ddd8;
+    border-radius: 12px;
+    background: #fff;
+    transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+
+.cp-categoria-card:hover {
+    border-color: #ff5a1f;
+    background: #fff8f5;
+}
+
+.cp-categoria input:checked + .cp-categoria-card {
+    border-color: #ff5a1f;
+    background: #fff3ef;
+}
+
+.cp-categoria input:checked + .cp-categoria-card .cp-categoria-icone {
+    transform: scale(1.15);
+}
+
+.cp-categoria-icone {
+    font-size: 26px;
+    display: block;
+    transition: transform 0.15s;
+}
+
+.cp-categoria-card strong {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.2;
+}
+
+.cp-categoria-card small {
+    font-size: 11px;
+    color: #999;
+    line-height: 1.3;
+}
+
+/* ─── NAVEGAÇÃO ENTRE ETAPAS ─── */
+
+.cp-nav-etapa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+    padding-top: 6px;
+}
+
+.cp-nav-voltar-only {
+    justify-content: flex-start;
+    margin-top: 0;
+}
+
+.btn-proximo {
+    min-width: 140px;
+}
+
+.btn-voltar {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px 0;
+    font-family: inherit;
+    transition: color 0.15s;
+}
+
+.btn-voltar:hover {
+    color: #1a1a1a;
+}
+
+/* ─── RESUMO DA EMPRESA (ETAPA 4) ─── */
+
+.cp-resumo {
+    background: #f7f6f3;
+    border: 1px solid #e8e5e0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.cp-resumo.visivel {
+    display: block;
+}
+
+.cp-resumo-titulo {
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.cp-resumo-linha {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #444;
+    padding: 4px 0;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.cp-resumo-linha:last-child {
+    border-bottom: none;
+}
+
+.cp-resumo-linha span:first-child {
+    color: #888;
+}
+
+.cp-resumo-linha span:last-child {
+    font-weight: 600;
+    color: #1a1a1a;
+    text-align: right;
+    max-width: 60%;
+}
+
+/* ─── TERMOS ─── */
+
+.cp-termos-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: #444;
+    cursor: pointer;
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+.cp-termos-label input[type="checkbox"] {
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+    accent-color: #ff5a1f;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.cp-link {
+    color: #ff5a1f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.cp-link:hover {
+    text-decoration: underline;
+}
+
+/* ─── RESPONSIVO ─── */
+
+@media (max-width: 600px) {
+    .cp-categorias {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cp-step span {
+        display: none;
+    }
+
+    .cp-step {
+        min-width: 40px;
+    }
+}

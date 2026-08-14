@@ -1,0 +1,142 @@
+:root {
+    --laranja:#ff5a1f; --laranja-hover:#eb4d15; --laranja-claro:#fff3ef;
+    --cinza:#f5f5f5; --cinza-borda:#e0e0e0; --texto:#333; --texto-suave:#666;
+    --branco:#fff; --sidebar:240px; --transition:.25s ease;
+}
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,Helvetica,sans-serif; }
+body { color:var(--texto); background:var(--cinza); }
+.dash-body { display:flex; min-height:100vh; }
+
+/* SIDEBAR */
+.dash-sidebar { width:var(--sidebar); min-width:var(--sidebar); background:var(--branco); border-right:1px solid var(--cinza-borda); display:flex; flex-direction:column; padding:24px 16px; gap:24px; position:sticky; top:0; height:100vh; overflow-y:auto; }
+.dash-logo a { font-size:20px; font-weight:800; text-decoration:none; color:var(--texto); }
+.dash-logo a span { color:var(--laranja); }
+.dash-perfil { display:flex; align-items:center; gap:10px; padding:12px; background:var(--cinza); border-radius:12px; }
+.dash-avatar { width:40px; height:40px; border-radius:50%; background:var(--laranja-claro); color:var(--laranja); font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.dash-perfil strong { font-size:13px; display:block; }
+.dash-perfil span { font-size:11px; color:#2e7d32; font-weight:600; }
+.dash-nav { display:flex; flex-direction:column; gap:4px; flex:1; }
+.dash-nav-item { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:10px; text-decoration:none; font-size:14px; font-weight:600; color:var(--texto-suave); transition:all var(--transition); }
+.dash-nav-item:hover { background:var(--cinza); color:var(--texto); }
+.dash-nav-item.ativo { background:var(--laranja-claro); color:var(--laranja); }
+.dash-sair { font-size:13px; color:var(--texto-suave); text-decoration:none; padding:8px 12px; border-radius:8px; transition:color var(--transition); }
+.dash-sair:hover { color:var(--laranja); }
+
+/* MAIN */
+.dash-main { flex:1; padding:32px; display:flex; flex-direction:column; gap:24px; overflow-y:auto; }
+.dash-header { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
+.dash-header h1 { font-size:24px; font-weight:800; }
+.dash-header p { font-size:14px; color:var(--texto-suave); margin-top:4px; }
+.dash-header-acoes { display:flex; gap:10px; align-items:center; }
+.dash-periodo { padding:8px 12px; border:1.5px solid var(--cinza-borda); border-radius:8px; font-size:13px; outline:none; cursor:pointer; background:var(--branco); }
+.dash-btn-export { padding:8px 16px; border:1.5px solid var(--cinza-borda); border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; background:var(--branco); transition:all var(--transition); }
+.dash-btn-export:hover { border-color:var(--laranja); color:var(--laranja); }
+.dash-btn-novo { padding:8px 16px; border:none; border-radius:8px; font-size:13px; font-weight:700; cursor:pointer; background:var(--laranja); color:white; transition:background var(--transition); }
+.dash-btn-novo:hover { background:var(--laranja-hover); }
+
+/* SEÇÕES */
+.dash-secao { display:none; flex-direction:column; gap:24px; }
+.dash-secao.ativo { display:flex; }
+
+/* MÉTRICAS */
+.dash-metricas { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+.metrica-card { background:var(--branco); border-radius:16px; padding:20px; display:flex; align-items:center; gap:16px; box-shadow:0 2px 12px rgba(0,0,0,.06); }
+.metrica-icone { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+.metrica-card span { font-size:13px; color:var(--texto-suave); display:block; margin-bottom:4px; }
+.metrica-card strong { font-size:22px; font-weight:800; display:block; }
+.metrica-card small { font-size:12px; font-weight:600; margin-top:3px; display:block; }
+.positivo { color:#2e7d32; }
+.negativo { color:#d32f2f; }
+.neutro   { color:var(--texto-suave); }
+
+/* CARDS */
+.dash-card { background:var(--branco); border-radius:16px; padding:24px; box-shadow:0 2px 12px rgba(0,0,0,.06); }
+.dash-card-titulo { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+.dash-card-titulo h3 { font-size:16px; font-weight:700; }
+.dash-ver-mais { font-size:13px; color:var(--laranja); font-weight:600; text-decoration:none; cursor:pointer; }
+.dash-busca-input { padding:8px 12px; border:1.5px solid var(--cinza-borda); border-radius:8px; font-size:13px; outline:none; }
+.dash-busca-input:focus { border-color:var(--laranja); }
+.dash-linha-dupla { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+
+/* TABELA */
+.dash-tabela { width:100%; border-collapse:collapse; font-size:13px; }
+.dash-tabela th { text-align:left; padding:10px 12px; font-size:11px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--texto-suave); border-bottom:1px solid var(--cinza-borda); }
+.dash-tabela td { padding:12px 12px; border-bottom:1px solid #f5f5f5; }
+.dash-tabela tr:last-child td { border-bottom:none; }
+.dash-tabela tr:hover td { background:#fafafa; }
+.status-pago    { background:#e8f5e9; color:#2e7d32; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:700; }
+.status-pendente{ background:#fff3e0; color:#e65100; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:700; }
+.status-cancelado{ background:#fdecea; color:#c62828; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:700; }
+
+/* GRÁFICO BARRAS */
+.grafico-barras { display:flex; align-items:flex-end; gap:8px; height:160px; padding-top:8px; }
+.barra-wrap { display:flex; flex-direction:column; align-items:center; gap:4px; flex:1; }
+.barra { background:var(--laranja); border-radius:6px 6px 0 0; width:100%; transition:opacity var(--transition); min-height:4px; }
+.barra:hover { opacity:.8; }
+.barra-label { font-size:10px; color:var(--texto-suave); }
+.barra-valor  { font-size:10px; font-weight:700; color:var(--texto); }
+
+/* RANKING */
+.ranking-lista { display:flex; flex-direction:column; gap:12px; }
+.ranking-item { display:flex; align-items:center; gap:12px; }
+.ranking-pos { width:24px; height:24px; border-radius:6px; background:var(--cinza); font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.ranking-pos.top1 { background:var(--laranja); color:white; }
+.ranking-nome { flex:1; font-size:13px; font-weight:600; }
+.ranking-barra-wrap { flex:2; }
+.ranking-barra { height:8px; background:var(--laranja-claro); border-radius:4px; overflow:hidden; }
+.ranking-barra-fill { height:100%; background:var(--laranja); border-radius:4px; }
+.ranking-qtd { font-size:12px; font-weight:700; color:var(--texto-suave); min-width:40px; text-align:right; }
+
+/* PRODUTOS PARCEIRO */
+.produtos-parceiro-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; }
+.prod-parc-card { background:var(--branco); border-radius:16px; padding:20px; box-shadow:0 2px 12px rgba(0,0,0,.06); display:flex; flex-direction:column; gap:10px; }
+.prod-parc-card h4 { font-size:15px; font-weight:700; }
+.prod-parc-card .prod-preco { font-size:18px; font-weight:800; color:var(--laranja); }
+.prod-parc-badge { font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; width:max-content; }
+.prod-parc-badge.ativo { background:#e8f5e9; color:#2e7d32; }
+.prod-parc-badge.vencendo { background:#fff3e0; color:#e65100; }
+.prod-parc-acoes { display:flex; gap:8px; margin-top:4px; }
+.prod-parc-btn { flex:1; padding:8px; border:none; border-radius:8px; font-size:12px; font-weight:600; cursor:pointer; }
+.prod-parc-btn.editar { background:var(--cinza); color:var(--texto); }
+.prod-parc-btn.remover { background:#fdecea; color:#c62828; }
+
+/* ESG */
+.impacto-esg-hero { background:var(--laranja-claro); border:2px solid #ffd0be; border-radius:16px; padding:24px; display:flex; align-items:center; gap:16px; }
+.impacto-esg-hero span { font-size:40px; }
+.impacto-esg-hero h2 { font-size:18px; font-weight:700; margin-bottom:4px; }
+.impacto-esg-hero p { font-size:14px; color:var(--texto-suave); }
+.esg-barras { display:flex; align-items:flex-end; gap:16px; height:160px; }
+.esg-barra-wrap { display:flex; flex-direction:column; align-items:center; gap:4px; flex:1; }
+.esg-barra { background:var(--verde,#b7d4b2); border-radius:6px 6px 0 0; width:100%; min-height:4px; }
+
+/* CERTIFICADOS */
+.certificados-lista { display:flex; flex-direction:column; gap:12px; }
+.certificado-item { display:flex; align-items:center; gap:12px; padding:14px; background:var(--cinza); border-radius:12px; }
+.certificado-item span { font-size:28px; flex-shrink:0; }
+.certificado-item strong { display:block; font-size:13px; font-weight:700; }
+.certificado-item p { font-size:12px; color:var(--texto-suave); }
+.cert-btn { margin-left:auto; padding:6px 14px; border:none; border-radius:8px; font-size:12px; font-weight:700; cursor:pointer; background:var(--laranja); color:white; white-space:nowrap; flex-shrink:0; }
+.cert-btn:disabled { background:#ddd; color:#aaa; cursor:not-allowed; }
+.certificado-item--bloqueado { opacity:.6; }
+
+/* MÁQUINAS */
+.maquinas-parc-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
+.maq-parc-card { background:var(--branco); border-radius:16px; padding:20px; box-shadow:0 2px 12px rgba(0,0,0,.06); display:flex; flex-direction:column; gap:12px; }
+.maq-parc-header { display:flex; justify-content:space-between; align-items:center; }
+.maq-parc-header h4 { font-size:15px; font-weight:700; }
+.maq-status { font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; }
+.maq-status.online { background:#e8f5e9; color:#2e7d32; }
+.maq-status.offline { background:#fdecea; color:#c62828; }
+.maq-parc-info { font-size:13px; color:var(--texto-suave); }
+.maq-parc-stats { display:flex; gap:0; background:var(--cinza); border-radius:10px; overflow:hidden; }
+.maq-stat { flex:1; text-align:center; padding:10px 4px; }
+.maq-stat strong { display:block; font-size:16px; font-weight:800; color:var(--laranja); }
+.maq-stat span { font-size:11px; color:var(--texto-suave); }
+
+/* REPASSES */
+@media (max-width:900px) {
+    .dash-sidebar { display:none; }
+    .dash-main { padding:20px 16px; }
+    .dash-linha-dupla { grid-template-columns:1fr; }
+    .dash-metricas { grid-template-columns:1fr 1fr; }
+}

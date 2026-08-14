@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pagamento - AgilizaAê</title>
+
+    <link rel="stylesheet" href="checkout.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            Agiliza<span>Aê</span>
+
+        </div>
+
+        <div class="titulo" id="tituloMaquina">
+
+            Pagamento
+
+        </div>
+
+        <a href="maquinas.html" class="btn-menu" id="btnVoltarMaquina">
+
+            Voltar para Máquinas
+
+        </a>
+
+    </header>
+
+    <!-- STEPPER -->
+
+    <section class="steps">
+
+        <div class="step active">
+            <span>1</span>
+            Forma de pagamento
+        </div>
+
+        <div class="step">
+            <span>2</span>
+            Tempo
+        </div>
+
+        <div class="step">
+            <span>3</span>
+            Cupom
+        </div>
+
+        <div class="step">
+            <span>4</span>
+            Finalizar
+        </div>
+
+    </section>
+
+    <!-- CONTAINER -->
+
+    <main class="container">
+
+        <!-- ESQUERDA -->
+
+        <section class="left">
+
+            <!-- ETAPA 1 -->
+
+            <div id="etapa1" class="etapa active">
+
+                <h1>Forma de pagamento</h1>
+
+                <div class="option active" data-pagamento="PIX">
+
+                    <h2>PIX</h2>
+
+                    <p>
+                        Pagamento instantâneo • sem taxas
+                    </p>
+
+                </div>
+
+                <div class="option" data-pagamento="Cartão">
+
+                    <h2>Cartão</h2>
+
+                    <p>
+                        Visa, Master e Elo
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- ETAPA 2 -->
+
+            <div id="etapa2" class="etapa">
+
+                <h1>Tempo de reserva</h1>
+
+                <div class="tempo">
+
+                    <button class="tempo-btn active">
+
+                        30 minutos
+
+                    </button>
+
+                    <button class="tempo-btn">
+
+                        1 hora
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- ETAPA 3 -->
+
+            <div id="etapa3" class="etapa">
+
+                <h1>Cupom de desconto</h1>
+
+                <div class="cupom">
+
+                    <input type="text" id="cupom" placeholder="Digite o cupom">
+
+                    <button id="aplicarCupom">
+
+                        Aplicar
+
+                    </button>
+
+                </div>
+
+                <div id="mensagemCupom"></div>
+
+            </div>
+
+            <!-- ETAPA 4 -->
+
+            <div id="etapa4" class="etapa">
+
+                <h1>Finalização</h1>
+
+                <div id="resumoPagamento">
+
+                </div>
+
+            </div>
+
+            <!-- NAVEGAÇÃO -->
+
+            <div class="navegacao">
+
+                <button id="voltar">
+
+                    ← Voltar
+
+                </button>
+
+                <button id="avancar">
+
+                    Avançar →
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- DIREITA -->
+
+        <section class="right">
+
+            <div class="resumo">
+
+                <h1>Resumo do pedido</h1>
+
+                <div id="lista-itens">
+
+                </div>
+
+                <button id="addItem">
+                    + Adicionar mais produtos
+                </button>
+
+                <hr>
+
+                <div class="linha">
+                    <span>Subtotal</span>
+                    <strong id="subtotal">
+                        R$ 0,00
+                    </strong>
+                </div>
+
+                <div class="linha">
+                    <span>Desconto</span>
+                    <strong id="desconto">
+                        R$ 0,00
+                    </strong>
+                </div>
+
+                <hr>
+
+                <div class="total">
+                    <h2>Total</h2>
+                    <h2 id="valorTotal">
+                        R$ 0,00
+                    </h2>
+                </div>
+
+            </div>
+
+            <!-- PAGAMENTO -->
+
+            <div id="pagamento-info">
+
+            </div>
+
+            <!-- CONFIRMAÇÃO -->
+
+            <div id="confirmacao">
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+
+    <footer class="footer">
+
+        <p>
+            🌱 Compra certificada anti-desperdício
+        </p>
+
+        <small>
+            ~1,2kg de CO₂ evitado com esta compra
+        </small>
+
+    </footer>
+
+    <script src="checkout.js"></script>
+
+</body>
+
+</html>

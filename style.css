@@ -1,0 +1,82 @@
+:root{
+    --laranja:#ff5a1f;
+    --laranja-hover:#eb4d15;
+    --verde:#b7d4b2;
+    --cinza:#f5f5f5;
+    --texto:#333;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#fff;
+    color:var(--texto);
+}
+
+/* HEADER GLOBAL */
+.header{
+    height:80px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 60px;
+    border-bottom:1px solid #ddd;
+    background:#fff;
+}
+
+.logo a{
+    text-decoration:none;
+    color:var(--laranja);
+    font-size:30px;
+    font-weight:800;
+}
+
+.logo span{
+    background:var(--laranja);
+    color:#fff;
+    padding:3px 8px;
+    border-radius:20px;
+}
+
+.menu{
+    display:flex;
+    gap:20px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#333;
+    padding:10px 16px;
+    border-radius:30px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.menu a:hover{
+    background:#fff1eb;
+    color:var(--laranja);
+}
+
+/* BOTÕES */
+.btn-login,
+.btn-cadastro{
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:30px;
+    font-weight:700;
+}
+
+.btn-login{
+    color:var(--laranja);
+    border:2px solid var(--laranja);
+}
+
+.btn-cadastro{
+    background:var(--laranja);
+    color:#fff;
+}

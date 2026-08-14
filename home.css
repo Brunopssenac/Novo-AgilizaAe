@@ -1,0 +1,502 @@
+/* =========================
+   VARIÁVEIS
+========================= */
+
+:root {
+    --laranja: #ff5a1f;
+    --laranja-hover: #eb4d15;
+    --laranja-claro: #fff3ef;
+    --verde: #b7d4b2;
+    --cinza: #f5f5f5;
+    --texto: #333;
+    --texto-suave: #666;
+    --branco: #fff;
+    --sombra: 0 8px 32px rgba(0,0,0,.10);
+    --transition: .25s ease;
+}
+
+/* =========================
+   RESET BASE
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    color: var(--texto);
+    background: var(--branco);
+}
+
+/* =========================
+   LAYOUT HOME
+========================= */
+
+.home {
+    display: flex;
+    min-height: calc(100vh - 80px);
+}
+
+/* =========================
+   HERO — ESQUERDA
+========================= */
+
+.hero-texto {
+    width: 52%;
+    background: var(--cinza);
+    padding: 64px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+}
+
+/* =========================
+   BADGES
+========================= */
+
+.badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    border: 1.5px solid var(--laranja);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--branco);
+    color: var(--laranja);
+    letter-spacing: .2px;
+}
+
+/* =========================
+   TÍTULO
+========================= */
+
+.hero-texto h1 {
+    font-size: 52px;
+    color: var(--texto);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    font-weight: 800;
+}
+
+.hero-texto h1 span {
+    color: var(--laranja);
+}
+
+/* =========================
+   SUBTÍTULO
+========================= */
+
+.hero-subtitulo {
+    font-size: 17px;
+    color: var(--texto-suave);
+    line-height: 1.6;
+    max-width: 460px;
+}
+
+.hero-subtitulo strong {
+    color: var(--laranja);
+}
+
+/* =========================
+   BOTÕES HERO
+========================= */
+
+.hero-acoes {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-principal {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--branco);
+    background: var(--laranja);
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    transition: background var(--transition), transform var(--transition);
+    letter-spacing: .3px;
+}
+
+.btn-principal:hover {
+    background: var(--laranja-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--laranja);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 4px;
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--transition);
+}
+
+.btn-secundario:hover {
+    border-color: var(--laranja);
+}
+
+/* =========================
+   ESTATÍSTICAS
+========================= */
+
+.estatisticas {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--branco);
+    border: 2px solid #ececec;
+    border-radius: 16px;
+    padding: 20px 28px;
+    max-width: 460px;
+    box-shadow: var(--sombra);
+}
+
+.stat {
+    flex: 1;
+    text-align: center;
+}
+
+.stat h2 {
+    color: var(--laranja);
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.stat p {
+    font-size: 12px;
+    color: var(--texto-suave);
+    margin-top: 3px;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 36px;
+    background: #ececec;
+    margin: 0 8px;
+}
+
+/* =========================
+   HERO — DIREITA
+========================= */
+
+.hero-card {
+    width: 48%;
+    background: var(--verde);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* decoração de fundo */
+.hero-card::before {
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.15);
+    top: -80px;
+    right: -80px;
+}
+
+.hero-card::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.10);
+    bottom: -40px;
+    left: -40px;
+}
+
+/* =========================
+   CARD DA MÁQUINA
+========================= */
+
+.card {
+    width: 300px;
+    background: var(--branco);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0,0,0,.18);
+    transition: transform var(--transition);
+    position: relative;
+    z-index: 1;
+}
+
+/* MAPA FALSO */
+.card-mapa {
+    height: 140px;
+    background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 50%, #81c784 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.mapa-pin {
+    font-size: 36px;
+    position: relative;
+    z-index: 2;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+}
+
+.mapa-circulo {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.25);
+    border: 2px solid rgba(255,255,255,.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1);   opacity: 1; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* CORPO DO CARD */
+.card-corpo {
+    padding: 18px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.status {
+    display: flex;
+    gap: 8px;
+}
+
+.status span {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.aberto {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.promo {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.card-corpo h3 {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--texto);
+}
+
+.card-distancia {
+    font-size: 13px;
+    color: var(--texto-suave);
+    margin-top: -4px;
+}
+
+/* INFO DO CARD */
+.card-info {
+    display: flex;
+    align-items: center;
+    background: var(--cinza);
+    border-radius: 12px;
+    padding: 12px 8px;
+    gap: 0;
+}
+
+.card-info-item {
+    flex: 1;
+    text-align: center;
+}
+
+.card-info-item strong {
+    display: block;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--laranja);
+}
+
+.card-info-item span {
+    font-size: 11px;
+    color: var(--texto-suave);
+    margin-top: 2px;
+    display: block;
+}
+
+.card-info-divider {
+    width: 1px;
+    height: 28px;
+    background: #ddd;
+}
+
+/* BOTÃO DO CARD */
+.btn-card {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: var(--laranja);
+    color: var(--branco);
+    padding: 13px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: background var(--transition), transform var(--transition);
+    margin-top: 4px;
+}
+
+.btn-card:hover {
+    background: var(--laranja-hover);
+    transform: scale(1.02);
+}
+
+/* =========================
+   CARD FLUTUANTE
+========================= */
+
+.card-flutuante {
+    position: absolute;
+    bottom: 48px;
+    left: 32px;
+    background: var(--branco);
+    border-radius: 14px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.14);
+    z-index: 2;
+    animation: slideUp .6s ease .3s both;
+    max-width: 220px;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.flutuante-icone {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.card-flutuante strong {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--texto);
+    display: block;
+}
+
+.card-flutuante p {
+    font-size: 11px;
+    color: var(--texto-suave);
+    margin-top: 2px;
+}
+
+/* =========================
+   HEADER — botões
+========================= */
+
+.btn-login {
+    text-decoration: none;
+    color: var(--laranja);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px 18px;
+    border-radius: 30px;
+    border: 2px solid var(--laranja);
+    transition: background var(--transition), color var(--transition);
+}
+
+.btn-login:hover {
+    background: var(--laranja-claro);
+}
+
+.btn-cadastro {
+    text-decoration: none;
+    color: var(--branco);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px 18px;
+    border-radius: 30px;
+    background: var(--laranja);
+    border: 2px solid var(--laranja);
+    transition: background var(--transition);
+}
+
+.btn-cadastro:hover {
+    background: var(--laranja-hover);
+    border-color: var(--laranja-hover);
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 900px) {
+
+    .home {
+        flex-direction: column;
+    }
+
+    .hero-texto,
+    .hero-card {
+        width: 100%;
+    }
+
+    .hero-texto {
+        padding: 48px 28px;
+        gap: 22px;
+    }
+
+    .hero-texto h1 {
+        font-size: 38px;
+    }
+
+    .estatisticas {
+        max-width: 100%;
+    }
+
+    .hero-card {
+        padding: 48px 20px 80px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .card-flutuante {
+        bottom: 20px;
+        left: 20px;
+    }
+}

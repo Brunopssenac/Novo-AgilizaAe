@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja um Parceiro - AgilizaAê</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="parceiros.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <a href="home.html">Agiliza<span>Aê</span></a>
+        </div>
+        <nav class="menu">
+            <a href="maquinas.html">Máquinas</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="parceiros.html" class="ativo">Parceiros</a>
+        </nav>
+        <div class="acoes">
+            <a href="login-parceiro.html" class="btn-login">Entrar como parceiro</a>
+            <a href="cadastro-parceiro.html" class="btn-cadastro">Cadastrar empresa</a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="parc-hero">
+            <div class="parc-hero-texto">
+                <span class="eyebrow">Programa de Parceiros</span>
+                <h1>Transforme seu<br>estoque em <span>impacto</span></h1>
+                <p>Cadastre sua empresa e comece a vender produtos próximos ao vencimento nas nossas máquinas. Zero
+                    desperdício, nova receita e ainda faz bem ao planeta.</p>
+            </div>
+            <div class="parc-hero-beneficios">
+                <div class="parc-beneficio">
+                    <span>💰</span>
+                    <div>
+                        <strong>Nova receita</strong>
+                        <p>Monetize produtos que seriam descartados</p>
+                    </div>
+                </div>
+                <div class="parc-beneficio">
+                    <span>🌱</span>
+                    <div>
+                        <strong>Impacto ESG</strong>
+                        <p>Relatórios de impacto ambiental para sua empresa</p>
+                    </div>
+                </div>
+                <div class="parc-beneficio">
+                    <span>📊</span>
+                    <div>
+                        <strong>Dashboard completo</strong>
+                        <p>Acompanhe vendas e impacto em tempo real</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULÁRIO -->
+        <section class="parc-form-secao">
+
+            <div class="parc-form-card">
+
+                <div class="parc-form-titulo">
+                    <h2>Cadastre sua empresa</h2>
+                    <p>Preencha os dados abaixo e entraremos em contato em até 24h</p>
+                </div>
+
+                <form id="formParceiro" novalidate>
+
+                    <!-- DADOS DA EMPRESA -->
+                    <div class="auth-secao">
+                        <span class="auth-secao-label">Dados da empresa</span>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="razaoSocial">Razão social</label>
+                                <input id="razaoSocial" type="text" placeholder="Empresa Ltda.">
+                                <span class="erro" id="erro-razaoSocial"></span>
+                            </div>
+                            <div class="campo">
+                                <label for="nomeFantasia">Nome fantasia</label>
+                                <input id="nomeFantasia" type="text" placeholder="Nome que aparece ao público">
+                            </div>
+                        </div>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="cnpj">CNPJ</label>
+                                <input id="cnpj" type="text" placeholder="00.000.000/0001-00" maxlength="18">
+                                <span class="erro" id="erro-cnpj"></span>
+                            </div>
+                            <div class="campo">
+                                <label for="segmento">Segmento</label>
+                                <select id="segmento">
+                                    <option value="">Selecione</option>
+                                    <option>Supermercado</option>
+                                    <option>Restaurante</option>
+                                    <option>Padaria</option>
+                                    <option>Distribuidora</option>
+                                    <option>Indústria alimentícia</option>
+                                    <option>Outro</option>
+                                </select>
+                                <span class="erro" id="erro-segmento"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RESPONSÁVEL -->
+                    <div class="auth-secao">
+                        <span class="auth-secao-label">Responsável pelo contato</span>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="nomeResponsavel">Nome completo</label>
+                                <input id="nomeResponsavel" type="text" placeholder="João da Silva">
+                                <span class="erro" id="erro-nomeResponsavel"></span>
+                            </div>
+                            <div class="campo">
+                                <label for="cargo">Cargo</label>
+                                <input id="cargo" type="text" placeholder="Gerente de operações">
+                            </div>
+                        </div>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="emailParceiro">E-mail corporativo</label>
+                                <input id="emailParceiro" type="email" placeholder="joao@empresa.com.br">
+                                <span class="erro" id="erro-emailParceiro"></span>
+                            </div>
+                            <div class="campo">
+                                <label for="telefoneParceiro">Telefone</label>
+                                <input id="telefoneParceiro" type="text" placeholder="(11) 90000-0000" maxlength="15">
+                                <span class="erro" id="erro-telefoneParceiro"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ENDEREÇO -->
+                    <div class="auth-secao">
+                        <span class="auth-secao-label">Endereço da empresa</span>
+
+                        <div class="campo-grupo cep-grupo">
+                            <div class="campo">
+                                <label for="cepParceiro">CEP</label>
+                                <div class="input-cep">
+                                    <input id="cepParceiro" type="text" placeholder="00000-000" maxlength="9">
+                                    <button type="button" id="btnBuscarCepParceiro" class="btn-cep">Buscar</button>
+                                </div>
+                                <span class="erro" id="erro-cepParceiro"></span>
+                            </div>
+                        </div>
+
+                        <div class="campo-grupo tres">
+                            <div class="campo campo-rua">
+                                <label for="ruaParceiro">Rua</label>
+                                <input id="ruaParceiro" type="text" placeholder="Nome da rua">
+                            </div>
+                            <div class="campo campo-numero">
+                                <label for="numeroParceiro">Número</label>
+                                <input id="numeroParceiro" type="text" placeholder="123">
+                            </div>
+                            <div class="campo">
+                                <label for="bairroParceiro">Bairro</label>
+                                <input id="bairroParceiro" type="text" placeholder="Nome do bairro">
+                            </div>
+                        </div>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="cidadeParceiro">Cidade</label>
+                                <input id="cidadeParceiro" type="text" placeholder="São Paulo">
+                            </div>
+                            <div class="campo">
+                                <label for="estadoParceiro">Estado</label>
+                                <select id="estadoParceiro">
+                                    <option value="">Selecione</option>
+                                    <option>AC</option>
+                                    <option>AL</option>
+                                    <option>AM</option>
+                                    <option>AP</option>
+                                    <option>BA</option>
+                                    <option>CE</option>
+                                    <option>DF</option>
+                                    <option>ES</option>
+                                    <option>GO</option>
+                                    <option>MA</option>
+                                    <option>MG</option>
+                                    <option>MS</option>
+                                    <option>MT</option>
+                                    <option>PA</option>
+                                    <option>PB</option>
+                                    <option>PE</option>
+                                    <option>PI</option>
+                                    <option>PR</option>
+                                    <option>RJ</option>
+                                    <option>RN</option>
+                                    <option>RO</option>
+                                    <option>RR</option>
+                                    <option>RS</option>
+                                    <option>SC</option>
+                                    <option>SE</option>
+                                    <option>SP</option>
+                                    <option>TO</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SOBRE OS PRODUTOS -->
+                    <div class="auth-secao">
+                        <span class="auth-secao-label">Sobre seus produtos</span>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="volumeMensal">Volume mensal estimado (itens)</label>
+                                <select id="volumeMensal">
+                                    <option value="">Selecione</option>
+                                    <option>Até 100 itens</option>
+                                    <option>100 a 500 itens</option>
+                                    <option>500 a 2.000 itens</option>
+                                    <option>Acima de 2.000 itens</option>
+                                </select>
+                            </div>
+                            <div class="campo">
+                                <label for="tiposProdutos">Tipos de produtos</label>
+                                <select id="tiposProdutos">
+                                    <option value="">Selecione</option>
+                                    <option>Refeições prontas</option>
+                                    <option>Frutas e verduras</option>
+                                    <option>Laticínios</option>
+                                    <option>Padaria e confeitaria</option>
+                                    <option>Bebidas</option>
+                                    <option>Misto</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="campo">
+                            <label for="mensagem">Mensagem (opcional)</label>
+                            <textarea id="mensagem" rows="4"
+                                placeholder="Conte um pouco mais sobre sua empresa e como podemos colaborar..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="campo parc-termos">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="aceitaTermos">
+                            Concordo com os <a href="#">termos de parceria</a> e a <a href="#">política de
+                                privacidade</a>
+                        </label>
+                        <span class="erro" id="erro-aceitaTermos"></span>
+                    </div>
+
+                    <div class="auth-acoes">
+                        <button type="submit" class="btn-auth" id="btnEnviarParceiro">
+                            <span class="btn-texto">Enviar cadastro</span>
+                            <span class="btn-loading" hidden>Aguarde...</span>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- LATERAL -->
+            <div class="parc-lateral">
+
+                <div class="parc-lateral-card">
+                    <h3>Como funciona a parceria?</h3>
+                    <div class="parc-steps">
+                        <div class="parc-step">
+                            <span class="parc-step-num">1</span>
+                            <div>
+                                <strong>Cadastro aprovado</strong>
+                                <p>Nossa equipe analisa e aprova em até 24h</p>
+                            </div>
+                        </div>
+                        <div class="parc-step">
+                            <span class="parc-step-num">2</span>
+                            <div>
+                                <strong>Instalação da máquina</strong>
+                                <p>Instalamos gratuitamente no seu espaço</p>
+                            </div>
+                        </div>
+                        <div class="parc-step">
+                            <span class="parc-step-num">3</span>
+                            <div>
+                                <strong>Abastecimento</strong>
+                                <p>Você abastece ou nós coletamos — você escolhe</p>
+                            </div>
+                        </div>
+                        <div class="parc-step">
+                            <span class="parc-step-num">4</span>
+                            <div>
+                                <strong>Receba sua parte</strong>
+                                <p>70% de cada venda vai direto para você</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parc-lateral-card parc-lateral-card--laranja">
+                    <h3>Já somos mais de 80 parceiros</h3>
+                    <p>Empresas de todo o Brasil já fazem parte da nossa rede e transformam desperdício em receita.</p>
+                    <div class="parc-logos">
+                        <span>🏪</span>
+                        <span>🥐</span>
+                        <span>🍽️</span>
+                        <span>🥛</span>
+                        <span>🛒</span>
+                        <span>🏭</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="parceiros.js"></script>
+
+</body>
+
+</html>

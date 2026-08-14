@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Parceiro - AgilizaAê</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="cadastro-parceiro.css">
+</head>
+
+<body class="auth-body">
+
+    <header class="header">
+
+        <div class="logo">
+            <a href="home.html">Agiliza<span>Aê</span></a>
+        </div>
+
+        <nav class="menu">
+            <a href="maquinas.html">Máquinas</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="parceiros.html" class="ativo">Parceiros</a>
+        </nav>
+
+        <div class="acoes">
+            <a href="login-parceiro.html" class="btn-entrar">Já sou parceiro</a>
+        </div>
+
+    </header>
+
+    <main class="auth-main">
+
+        <div class="auth-card cp-card">
+
+            <!-- TOPO: ÍCONE + BADGE -->
+            <div class="cp-topo">
+                <div class="auth-logo">
+                    <span class="auth-logo-icone">🤝</span>
+                    <h1>Agiliza<span>Aê</span></h1>
+                </div>
+                <span class="cp-badge">Área do Parceiro</span>
+            </div>
+
+            <div class="auth-titulo">
+                <h2>Cadastre sua empresa</h2>
+                <p>Preencha os dados abaixo e comece a vender nas nossas máquinas</p>
+            </div>
+
+            <!-- STEPS -->
+            <div class="cp-steps">
+                <div class="cp-step ativo" id="step-ind-1">
+                    <div class="cp-step-num">1</div>
+                    <span>Empresa</span>
+                </div>
+                <div class="cp-step-linha"></div>
+                <div class="cp-step" id="step-ind-2">
+                    <div class="cp-step-num">2</div>
+                    <span>Responsável</span>
+                </div>
+                <div class="cp-step-linha"></div>
+                <div class="cp-step" id="step-ind-3">
+                    <div class="cp-step-num">3</div>
+                    <span>Produtos</span>
+                </div>
+                <div class="cp-step-linha"></div>
+                <div class="cp-step" id="step-ind-4">
+                    <div class="cp-step-num">4</div>
+                    <span>Acesso</span>
+                </div>
+            </div>
+
+            <form id="formCadastroParceiro" novalidate>
+
+                <!-- ══════════════════════════════ -->
+                <!-- ETAPA 1: DADOS DA EMPRESA      -->
+                <!-- ══════════════════════════════ -->
+                <div class="cp-etapa ativa" id="etapa-1">
+
+                    <div class="auth-secao">
+                        <span class="auth-secao-label">Dados da empresa</span>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="cnpj">CNPJ</label>
+                                <input id="cnpj" type="text" placeholder="00.000.000/0001-00" maxlength="18">
+                                <span class="erro" id="erro-cnpj"></span>
+                            </div>
+                            <div class="campo">
+                                <label for="razaoSocial">Razão social</label>
+                                <input id="razaoSocial" type="text" placeholder="Empresa Ltda.">
+                                <span class="erro" id="erro-razaoSocial"></span>
+                            </div>
+                        </div>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="nomeFantasia">Nome fantasia</label>
+                                <input id="nomeFantasia" type="text" placeholder="Como é conhecido pelo público">
+                                <span class="erro" id="erro-nomeFantasia"></span>
+                            </div>
+                            <div class="campo">
+                                <label for="segmento">Segmento</label>
+                                <select id="segmento">
+                                    <option value="">Selecione o segmento</option>
+                                    <option value="supermercado">Supermercado / Hipermercado</option>
+                                    <option value="restaurante">Restaurante / Lanchonete</option>
+                                    <option value="padaria">Padaria / Confeitaria</option>
+                                    <option value="hortifruti">Hortifrúti / Feira</option>
+                                    <option value="industria">Indústria alimentícia</option>
+                                    <option value="distribuidora">Distribuidora</option>
+                                    <option value="catering">Catering / Buffet</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                                <span class="erro" id="erro-segmento"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auth-secao">
+                        <span class="auth-secao-label">Endereço da empresa</span>
+
+                        <div class="campo-grupo cep-grupo">
+                            <div class="campo">
+                                <label for="cep">CEP</label>
+                                <div class="input-cep">
+                                    <input id="cep" type="text" placeholder="00000-000" maxlength="9">
+                                    <button type="button" id="btnBuscarCep" class="btn-cep">Buscar</button>
+                                </div>
+                                <span class="erro" id="erro-cep"></span>
+                            </div>
+                        </div>
+
+                        <div class="campo-grupo tres">
+                            <div class="campo campo-rua">
+                                <label for="rua">Rua</label>
+                                <input id="rua" type="text" placeholder="Nome da rua">
+                            </div>
+                            <div class="campo campo-numero">
+                                <label for="numero">Número</label>
+                                <input id="numero" type="text" placeholder="123">
+                            </div>
+                            <div class="campo">
+                                <label for="bairro">Bairro</label>
+                                <input id="bairro" type="text" placeholder="Nome do bairro">
+                            </div>
+                        </div>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="cidade">Cidade</label>
+                                <input id="cidade" type="text" placeholder="São Paulo">
+                            </div>
+                            <div class="campo">
+                                <label for="estado">Estado</label>
+                                <select id="estado">
+                                    <option value="">Selecione</option>
+                                    <option>AC</option>
+                                    <option>AL</option>
+                                    <option>AM</option>
+                                    <option>AP</option>
+                                    <option>BA</option>
+                                    <option>CE</option>
+                                    <option>DF</option>
+                                    <option>ES</option>
+                                    <option>GO</option>
+                                    <option>MA</option>
+                                    <option>MG</option>
+                                    <option>MS</option>
+                                    <option>MT</option>
+                                    <option>PA</option>
+                                    <option>PB</option>
+                                    <option>PE</option>
+                                    <option>PI</option>
+                                    <option>PR</option>
+                                    <option>RJ</option>
+                                    <option>RN</option>
+                                    <option>RO</option>
+                                    <option>RR</option>
+                                    <option>RS</option>
+                                    <option>SC</option>
+                                    <option>SE</option>
+                                    <option selected>SP</option>
+                                    <option>TO</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cp-nav-etapa">
+                        <span></span>
+                        <button type="button" class="btn-auth btn-proximo" onclick="irParaEtapa(2)">
+                            Próximo →
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- ══════════════════════════════ -->
+                <!-- ETAPA 2: RESPONSÁVEL           -->
+                <!-- ══════════════════════════════ -->
+                <div class="cp-etapa" id="etapa-2">
+
+                    <div class="auth-secao">
+                        <span class="auth-secao-label">Dados do responsável</span>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="nomeResponsavel">Nome completo</label>
+                                <input id="nomeResponsavel" type="text" placeholder="João da Silva" autocomplete="name">
+                                <span class="erro" id="erro-nomeResponsavel"></span>
+                            </div>
+                            <div class="campo">
+                                <label for="cargo">Cargo</label>
+                                <input id="cargo" type="text" placeholder="Ex: Gerente Comercial">
+                                <span class="erro" id="erro-cargo"></span>
+                            </div>
+                        </div>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="emailCorporativo">E-mail corporativo</label>
+                                <input id="emailCorporativo" type="email" placeholder="joao@empresa.com.br"
+                                    autocomplete="email">
+                                <span class="erro" id="erro-emailCorporativo"></span>
+                            </div>
+                            <div class="campo">
+                                <label for="telefone">Telefone / WhatsApp</label>
+                                <input id="telefone" type="text" placeholder="(11) 90000-0000" maxlength="15">
+                                <span class="erro" id="erro-telefone"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auth-secao">
+                        <span class="auth-secao-label">Capacidade de fornecimento</span>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="volumeMensal">Volume médio mensal</label>
+                                <select id="volumeMensal">
+                                    <option value="">Selecione</option>
+                                    <option value="ate50">Até 50 kg / mês</option>
+                                    <option value="50-200">50 a 200 kg / mês</option>
+                                    <option value="200-500">200 a 500 kg / mês</option>
+                                    <option value="500-1000">500 kg a 1 t / mês</option>
+                                    <option value="acima1000">Acima de 1 t / mês</option>
+                                </select>
+                                <span class="erro" id="erro-volumeMensal"></span>
+                            </div>
+                            <div class="campo">
+                                <label for="frequencia">Frequência de entrega</label>
+                                <select id="frequencia">
+                                    <option value="">Selecione</option>
+                                    <option value="diaria">Diária</option>
+                                    <option value="2x-semana">2× por semana</option>
+                                    <option value="semanal">Semanal</option>
+                                    <option value="quinzenal">Quinzenal</option>
+                                    <option value="sob-demanda">Sob demanda</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cp-nav-etapa">
+                        <button type="button" class="btn-voltar" onclick="irParaEtapa(1)">
+                            ← Voltar
+                        </button>
+                        <button type="button" class="btn-auth btn-proximo" onclick="irParaEtapa(3)">
+                            Próximo →
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- ══════════════════════════════ -->
+                <!-- ETAPA 3: TIPOS DE PRODUTO      -->
+                <!-- ══════════════════════════════ -->
+                <div class="cp-etapa" id="etapa-3">
+
+                    <div class="auth-secao">
+                        <span class="auth-secao-label">Que tipo de produto você fornece?</span>
+                        <p class="auth-secao-desc">Selecione todas as categorias que se aplicam ao seu negócio.</p>
+
+                        <div class="cp-categorias" id="categorias">
+
+                            <label class="cp-categoria">
+                                <input type="checkbox" name="categoria" value="saladas">
+                                <div class="cp-categoria-card">
+                                    <span class="cp-categoria-icone">🥗</span>
+                                    <strong>Saladas</strong>
+                                    <small>Prontas e higienizadas</small>
+                                </div>
+                            </label>
+
+                            <label class="cp-categoria">
+                                <input type="checkbox" name="categoria" value="sucos">
+                                <div class="cp-categoria-card">
+                                    <span class="cp-categoria-icone">🥤</span>
+                                    <strong>Sucos naturais</strong>
+                                    <small>Frios e sem conservantes</small>
+                                </div>
+                            </label>
+
+                            <label class="cp-categoria">
+                                <input type="checkbox" name="categoria" value="marmitas">
+                                <div class="cp-categoria-card">
+                                    <span class="cp-categoria-icone">🍱</span>
+                                    <strong>Marmitas</strong>
+                                    <small>Pratos prontos embalados</small>
+                                </div>
+                            </label>
+
+                            <label class="cp-categoria">
+                                <input type="checkbox" name="categoria" value="sanduiches">
+                                <div class="cp-categoria-card">
+                                    <span class="cp-categoria-icone">🥪</span>
+                                    <strong>Sanduíches</strong>
+                                    <small>Frios e wraps</small>
+                                </div>
+                            </label>
+
+                            <label class="cp-categoria">
+                                <input type="checkbox" name="categoria" value="frutas">
+                                <div class="cp-categoria-card">
+                                    <span class="cp-categoria-icone">🍎</span>
+                                    <strong>Frutas e vegetais</strong>
+                                    <small>In natura e cortados</small>
+                                </div>
+                            </label>
+
+                            <label class="cp-categoria">
+                                <input type="checkbox" name="categoria" value="paes">
+                                <div class="cp-categoria-card">
+                                    <span class="cp-categoria-icone">🥖</span>
+                                    <strong>Pães e massas</strong>
+                                    <small>Artesanais e industriais</small>
+                                </div>
+                            </label>
+
+                            <label class="cp-categoria">
+                                <input type="checkbox" name="categoria" value="laticinios">
+                                <div class="cp-categoria-card">
+                                    <span class="cp-categoria-icone">🧀</span>
+                                    <strong>Laticínios</strong>
+                                    <small>Queijos, iogurtes e frios</small>
+                                </div>
+                            </label>
+
+                            <label class="cp-categoria">
+                                <input type="checkbox" name="categoria" value="sobremesas">
+                                <div class="cp-categoria-card">
+                                    <span class="cp-categoria-icone">🍰</span>
+                                    <strong>Sobremesas</strong>
+                                    <small>Doces e confeitaria</small>
+                                </div>
+                            </label>
+
+                            <label class="cp-categoria">
+                                <input type="checkbox" name="categoria" value="bebidas">
+                                <div class="cp-categoria-card">
+                                    <span class="cp-categoria-icone">🍶</span>
+                                    <strong>Bebidas em geral</strong>
+                                    <small>Funcionais e vitaminas</small>
+                                </div>
+                            </label>
+
+                            <label class="cp-categoria">
+                                <input type="checkbox" name="categoria" value="outros">
+                                <div class="cp-categoria-card">
+                                    <span class="cp-categoria-icone">📦</span>
+                                    <strong>Outros</strong>
+                                    <small>Não listados acima</small>
+                                </div>
+                            </label>
+
+                        </div>
+                        <span class="erro" id="erro-categorias"></span>
+                    </div>
+
+                    <div class="auth-secao">
+                        <span class="auth-secao-label">Informações adicionais</span>
+
+                        <div class="campo">
+                            <label for="observacoes">Conte mais sobre seus produtos (opcional)</label>
+                            <textarea id="observacoes"
+                                placeholder="Ex: fornecemos marmitas vegetarianas e veganas, embalagens biodegradáveis, produção diária..."
+                                rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="cp-nav-etapa">
+                        <button type="button" class="btn-voltar" onclick="irParaEtapa(2)">
+                            ← Voltar
+                        </button>
+                        <button type="button" class="btn-auth btn-proximo" onclick="irParaEtapa(4)">
+                            Próximo →
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- ══════════════════════════════ -->
+                <!-- ETAPA 4: DADOS DE ACESSO       -->
+                <!-- ══════════════════════════════ -->
+                <div class="cp-etapa" id="etapa-4">
+
+                    <div class="auth-secao">
+                        <span class="auth-secao-label">Crie seu acesso ao painel</span>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="emailAcesso">E-mail de acesso</label>
+                                <input id="emailAcesso" type="email" placeholder="joao@empresa.com.br"
+                                    autocomplete="email">
+                                <span class="erro" id="erro-emailAcesso"></span>
+                            </div>
+                            <div class="campo">
+                                <label for="emailAcessoConfirm">Confirmar e-mail</label>
+                                <input id="emailAcessoConfirm" type="email" placeholder="Repita o e-mail">
+                                <span class="erro" id="erro-emailAcessoConfirm"></span>
+                            </div>
+                        </div>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="senha">Senha</label>
+                                <div class="input-senha">
+                                    <input id="senha" type="password" placeholder="Mínimo 8 caracteres"
+                                        autocomplete="new-password">
+                                    <button type="button" class="toggle-senha" data-alvo="senha">👁</button>
+                                </div>
+                                <span class="erro" id="erro-senha"></span>
+                            </div>
+                            <div class="campo">
+                                <label for="confirmarSenha">Confirmar senha</label>
+                                <div class="input-senha">
+                                    <input id="confirmarSenha" type="password" placeholder="Repita a senha"
+                                        autocomplete="new-password">
+                                    <button type="button" class="toggle-senha" data-alvo="confirmarSenha">👁</button>
+                                </div>
+                                <span class="erro" id="erro-confirmarSenha"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RESUMO DA EMPRESA -->
+                    <div class="cp-resumo" id="cpResumo"></div>
+
+                    <div class="auth-secao">
+                        <label class="cp-termos-label">
+                            <input type="checkbox" id="aceitaTermos">
+                            <span>Li e aceito os <a href="#" class="cp-link">Termos de Parceria</a> e a <a href="#"
+                                    class="cp-link">Política de Privacidade</a></span>
+                        </label>
+                        <span class="erro" id="erro-termos"></span>
+                    </div>
+
+                    <div class="auth-acoes">
+                        <button type="submit" class="btn-auth" id="btnCadastrar">
+                            <span class="btn-texto">Enviar cadastro</span>
+                            <span class="btn-loading" hidden>Aguarde...</span>
+                        </button>
+                    </div>
+
+                    <div class="cp-nav-etapa cp-nav-voltar-only">
+                        <button type="button" class="btn-voltar" onclick="irParaEtapa(3)">
+                            ← Voltar
+                        </button>
+                    </div>
+
+                </div>
+
+            </form>
+
+            <p class="auth-link" style="margin-top: 20px;">
+                Já tem uma conta? <a href="login-parceiro.html">Entrar como parceiro</a>
+            </p>
+
+        </div>
+
+    </main>
+
+    <script src="cadastro-parceiro.js"></script>
+
+</body>
+
+</html>

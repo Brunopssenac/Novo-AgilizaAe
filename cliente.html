@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta - AgilizaAê</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cliente.css">
+</head>
+
+<body class="cliente-body">
+
+    <header class="header">
+        <div class="logo">
+            <a href="home.html">Agiliza<span>Aê</span></a>
+        </div>
+        <nav class="menu">
+            <a href="maquinas.html">Máquinas</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="parceiros.html">Parceiros</a>
+        </nav>
+        <div class="acoes">
+            <a href="maquinas.html" class="btn-cadastro">Comprar agora</a>
+        </div>
+    </header>
+
+    <main class="cliente-main">
+
+        <!-- SIDEBAR -->
+        <aside class="cliente-sidebar">
+
+            <div class="cliente-perfil-mini">
+                <div class="cliente-avatar-grande">JD</div>
+                <div>
+                    <strong>João da Silva</strong>
+                    <span>joao@email.com</span>
+                </div>
+            </div>
+
+            <nav class="cliente-nav">
+                <a href="#" class="cliente-nav-item ativo" data-secao="inicio">
+                    <span>🏠</span> Início
+                </a>
+                <a href="#" class="cliente-nav-item" data-secao="pedidos">
+                    <span>🛒</span> Meus pedidos
+                </a>
+                <a href="#" class="cliente-nav-item" data-secao="cartoes">
+                    <span>💳</span> Cartões
+                </a>
+                <a href="#" class="cliente-nav-item" data-secao="perfil">
+                    <span>👤</span> Meu perfil
+                </a>
+                <a href="#" class="cliente-nav-item" data-secao="impacto">
+                    <span>🌱</span> Meu impacto
+                </a>
+            </nav>
+
+            <a href="login.html" class="cliente-sair">← Sair da conta</a>
+
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <div class="cliente-conteudo">
+
+            <!-- ========================= -->
+            <!-- SEÇÃO: INÍCIO             -->
+            <!-- ========================= -->
+            <section class="cliente-secao ativo" id="secao-inicio">
+
+                <div class="inicio-boas-vindas">
+                    <div>
+                        <h1>Olá, João! 👋</h1>
+                        <p>Aqui está um resumo da sua conta</p>
+                    </div>
+                    <a href="maquinas.html" class="btn-principal">Fazer nova compra →</a>
+                </div>
+
+                <div class="inicio-metricas">
+                    <div class="inicio-metrica">
+                        <span>🛒</span>
+                        <strong>12</strong>
+                        <p>Pedidos feitos</p>
+                    </div>
+                    <div class="inicio-metrica">
+                        <span>💰</span>
+                        <strong>R$ 87,40</strong>
+                        <p>Economizados</p>
+                    </div>
+                    <div class="inicio-metrica">
+                        <span>🌱</span>
+                        <strong>3,2 kg</strong>
+                        <p>Alimentos salvos</p>
+                    </div>
+                    <div class="inicio-metrica">
+                        <span>♻️</span>
+                        <strong>640g</strong>
+                        <p>CO₂ evitado</p>
+                    </div>
+                </div>
+
+                <div class="inicio-dupla">
+
+                    <div class="cliente-card">
+                        <div class="cliente-card-titulo">
+                            <h3>Últimos pedidos</h3>
+                            <a href="#" class="link-ver-mais" data-goto="pedidos">Ver todos →</a>
+                        </div>
+                        <div class="pedidos-mini" id="pedidosMini"></div>
+                    </div>
+
+                    <div class="cliente-card">
+                        <div class="cliente-card-titulo">
+                            <h3>Seu impacto acumulado</h3>
+                        </div>
+                        <div class="impacto-mini">
+                            <div class="impacto-mini-item">
+                                <div class="impacto-barra-wrap">
+                                    <span>🌱 Alimentos salvos</span>
+                                    <strong>3,2 kg</strong>
+                                </div>
+                                <div class="barra-progresso">
+                                    <div class="barra-fill" style="width:64%"></div>
+                                </div>
+                                <small>Meta mensal: 5 kg</small>
+                            </div>
+                            <div class="impacto-mini-item">
+                                <div class="impacto-barra-wrap">
+                                    <span>♻️ CO₂ evitado</span>
+                                    <strong>640g</strong>
+                                </div>
+                                <div class="barra-progresso">
+                                    <div class="barra-fill" style="width:42%"></div>
+                                </div>
+                                <small>Meta mensal: 1,5 kg</small>
+                            </div>
+                            <div class="impacto-mini-item">
+                                <div class="impacto-barra-wrap">
+                                    <span>💧 Água economizada</span>
+                                    <strong>48 L</strong>
+                                </div>
+                                <div class="barra-progresso">
+                                    <div class="barra-fill" style="width:80%"></div>
+                                </div>
+                                <small>Meta mensal: 60 L</small>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ========================= -->
+            <!-- SEÇÃO: PEDIDOS            -->
+            <!-- ========================= -->
+            <section class="cliente-secao" id="secao-pedidos">
+
+                <div class="secao-titulo">
+                    <h2>Meus pedidos</h2>
+                    <p>Histórico completo das suas compras</p>
+                </div>
+
+                <div class="pedidos-filtros">
+                    <button class="pedido-filtro ativo" data-filtro="todos">Todos</button>
+                    <button class="pedido-filtro" data-filtro="entregue">Concluídos</button>
+                    <button class="pedido-filtro" data-filtro="pendente">Pendentes</button>
+                </div>
+
+                <div class="pedidos-lista" id="pedidosLista"></div>
+
+            </section>
+
+            <!-- ========================= -->
+            <!-- SEÇÃO: CARTÕES            -->
+            <!-- ========================= -->
+            <section class="cliente-secao" id="secao-cartoes">
+
+                <div class="secao-titulo">
+                    <h2>Meus cartões</h2>
+                    <p>Gerencie seus métodos de pagamento</p>
+                </div>
+
+                <div class="cartoes-grid" id="cartoesGrid"></div>
+
+                <div class="cartao-novo-form" id="formNovoCartao" style="display:none">
+
+                    <h3>Adicionar novo cartão</h3>
+
+                    <div class="campo-grupo dois">
+                        <div class="campo">
+                            <label>Número do cartão</label>
+                            <input id="numCartao" type="text" placeholder="0000 0000 0000 0000" maxlength="19">
+                        </div>
+                        <div class="campo">
+                            <label>Nome no cartão</label>
+                            <input id="nomeCartao" type="text" placeholder="JOÃO DA SILVA">
+                        </div>
+                    </div>
+
+                    <div class="campo-grupo dois">
+                        <div class="campo">
+                            <label>Validade</label>
+                            <input id="validadeCartao" type="text" placeholder="MM/AA" maxlength="5">
+                        </div>
+                        <div class="campo">
+                            <label>CVV</label>
+                            <input id="cvvCartao" type="text" placeholder="123" maxlength="3">
+                        </div>
+                    </div>
+
+                    <div class="cartao-form-acoes">
+                        <button class="btn-principal" id="btnSalvarCartao">Salvar cartão</button>
+                        <button class="btn-cancelar" id="btnCancelarCartao">Cancelar</button>
+                    </div>
+
+                </div>
+
+                <button class="btn-add-cartao" id="btnAddCartao">
+                    + Adicionar novo cartão
+                </button>
+
+            </section>
+
+            <!-- ========================= -->
+            <!-- SEÇÃO: PERFIL             -->
+            <!-- ========================= -->
+            <section class="cliente-secao" id="secao-perfil">
+
+                <div class="secao-titulo">
+                    <h2>Meu perfil</h2>
+                    <p>Atualize suas informações pessoais</p>
+                </div>
+
+                <div class="perfil-avatar-secao">
+                    <div class="perfil-avatar">JD</div>
+                    <div>
+                        <strong>João da Silva</strong>
+                        <span>Membro desde Jan/2024</span>
+                    </div>
+                </div>
+
+                <form id="formPerfil" novalidate>
+
+                    <div class="auth-secao">
+                        <span class="auth-secao-label">Dados pessoais</span>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="pNome">Nome completo</label>
+                                <input id="pNome" type="text" value="João da Silva">
+                            </div>
+                            <div class="campo">
+                                <label for="pEmail">E-mail</label>
+                                <input id="pEmail" type="email" value="joao@email.com">
+                            </div>
+                        </div>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="pCpf">CPF</label>
+                                <input id="pCpf" type="text" value="123.456.789-00" readonly class="readonly">
+                            </div>
+                            <div class="campo">
+                                <label for="pTelefone">Telefone</label>
+                                <input id="pTelefone" type="text" value="(11) 91234-5678">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auth-secao">
+                        <span class="auth-secao-label">Alterar senha</span>
+
+                        <div class="campo-grupo tres">
+                            <div class="campo">
+                                <label for="pSenhaAtual">Senha atual</label>
+                                <input id="pSenhaAtual" type="password" placeholder="••••••••">
+                            </div>
+                            <div class="campo">
+                                <label for="pNovaSenha">Nova senha</label>
+                                <input id="pNovaSenha" type="password" placeholder="••••••••">
+                            </div>
+                            <div class="campo">
+                                <label for="pConfirmarSenha">Confirmar nova senha</label>
+                                <input id="pConfirmarSenha" type="password" placeholder="••••••••">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auth-secao">
+                        <span class="auth-secao-label">Endereço</span>
+
+                        <div class="campo-grupo dois">
+                            <div class="campo">
+                                <label for="pRua">Rua</label>
+                                <input id="pRua" type="text" value="Av. Paulista">
+                            </div>
+                            <div class="campo">
+                                <label for="pNumero">Número</label>
+                                <input id="pNumero" type="text" value="1000">
+                            </div>
+                        </div>
+
+                        <div class="campo-grupo tres">
+                            <div class="campo">
+                                <label for="pBairro">Bairro</label>
+                                <input id="pBairro" type="text" value="Bela Vista">
+                            </div>
+                            <div class="campo">
+                                <label for="pCidade">Cidade</label>
+                                <input id="pCidade" type="text" value="São Paulo">
+                            </div>
+                            <div class="campo">
+                                <label for="pEstado">Estado</label>
+                                <input id="pEstado" type="text" value="SP">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="perfil-acoes">
+                        <button type="submit" class="btn-principal">Salvar alterações</button>
+                        <button type="button" class="btn-cancelar">Cancelar</button>
+                    </div>
+
+                </form>
+
+            </section>
+
+            <!-- ========================= -->
+            <!-- SEÇÃO: IMPACTO            -->
+            <!-- ========================= -->
+            <section class="cliente-secao" id="secao-impacto">
+
+                <div class="secao-titulo">
+                    <h2>Meu impacto 🌍</h2>
+                    <p>Veja o quanto você já contribuiu para o planeta</p>
+                </div>
+
+                <div class="impacto-hero-cliente">
+                    <span>🏅</span>
+                    <div>
+                        <strong>Você é um Herói do Clima!</strong>
+                        <p>Suas compras já salvaram 3,2 kg de alimentos e evitaram 640g de CO₂</p>
+                    </div>
+                </div>
+
+                <div class="inicio-metricas">
+                    <div class="inicio-metrica">
+                        <span>🌱</span>
+                        <strong>3,2 kg</strong>
+                        <p>Alimentos salvos</p>
+                    </div>
+                    <div class="inicio-metrica">
+                        <span>♻️</span>
+                        <strong>640g</strong>
+                        <p>CO₂ evitado</p>
+                    </div>
+                    <div class="inicio-metrica">
+                        <span>💧</span>
+                        <strong>48 L</strong>
+                        <p>Água economizada</p>
+                    </div>
+                    <div class="inicio-metrica">
+                        <span>💰</span>
+                        <strong>R$ 87,40</strong>
+                        <p>Economia total</p>
+                    </div>
+                </div>
+
+                <div class="cliente-card" style="margin-top:24px">
+                    <div class="cliente-card-titulo">
+                        <h3>Suas conquistas</h3>
+                    </div>
+                    <div class="conquistas-grid" id="conquistasGrid"></div>
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="cliente.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - AgilizaAê</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sobre.css">
+</head>
+
+<!-- pagina institucional, so conteudo estatico (sem forms nem JS) -->
+
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            <a href="home.html">Agiliza<span>Aê</span></a>
+        </div>
+
+        <nav class="menu">
+            <a href="maquinas.html">Máquinas</a>
+            <a href="sobre.html" class="ativo">Sobre</a>
+            <a href="parceiros.html">Parceiros</a>
+        </nav>
+
+        <div class="acoes">
+            <a href="login.html" class="btn-login">Entrar</a>
+            <a href="cadastro.html" class="btn-cadastro">Cadastrar</a>
+        </div>
+
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="sobre-hero">
+            <div class="sobre-hero-conteudo">
+                <span class="eyebrow">Sobre nós</span>
+                <h1>Nascemos para acabar<br>com o <span>desperdício</span></h1>
+                <p>O AgilizaAê conecta pessoas a alimentos frescos com desconto, salvando comida que seria descartada e
+                    tornando a alimentação saudável mais acessível para todos.</p>
+            </div>
+            <div class="sobre-hero-visual">
+                <!-- numero de toneladas salvas, mesmo dado que aparece no impacto la embaixo (deixei repetido de proposito pra reforcar) -->
+                <div class="hero-stat-card">
+                    <span>🌱</span>
+                    <strong>4,2 toneladas</strong>
+                    <p>de alimentos salvos do lixo</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MISSÃO, VISÃO, VALORES -->
+        <section class="mvv">
+
+            <div class="mvv-card">
+                <div class="mvv-icone">🎯</div>
+                <h3>Missão</h3>
+                <p>Reduzir o desperdício alimentar conectando consumidores a alimentos frescos com desconto, por meio de
+                    tecnologia acessível e máquinas inteligentes.</p>
+            </div>
+
+            <div class="mvv-card mvv-card--destaque">
+                <div class="mvv-icone">🔭</div>
+                <h3>Visão</h3>
+                <p>Ser a maior rede de distribuição sustentável de alimentos do Brasil, presente em todas as cidades até
+                    2030.</p>
+            </div>
+
+            <div class="mvv-card">
+                <div class="mvv-icone">💚</div>
+                <h3>Valores</h3>
+                <p>Sustentabilidade, transparência, acessibilidade e inovação. Acreditamos que fazer o bem e fazer
+                    negócio andam juntos.</p>
+            </div>
+
+        </section>
+
+        <!-- HISTÓRIA -->
+        <section class="historia">
+
+            <div class="historia-texto">
+                <span class="eyebrow">Nossa história</span>
+                <h2>De uma ideia simples<br>a uma solução real</h2>
+                <p>Em 2022, os fundadores do AgilizaAê perceberam que supermercados descartavam toneladas de alimentos
+                    próximos ao vencimento — produtos perfeitamente seguros e nutritivos. Enquanto isso, milhões de
+                    brasileiros não tinham acesso a comida saudável e acessível.</p>
+                <p>A solução foi criar máquinas inteligentes que recebem esses alimentos e os vendem com desconto, no
+                    momento certo, para quem mais precisa. Hoje somos uma empresa com mais de 1.200 máquinas em operação
+                    e crescendo todo mês.</p>
+            </div>
+
+            <!-- linha do tempo, a bolinha do ano atual usa a classe extra "historia-bolinha--ativo" pra destacar -->
+            <div class="historia-linha">
+
+                <div class="historia-item">
+                    <div class="historia-bolinha"></div>
+                    <div class="historia-conteudo">
+                        <span class="historia-ano">2022</span>
+                        <h4>Fundação</h4>
+                        <p>Nasce o AgilizaAê com 3 máquinas piloto na cidade de São Paulo.</p>
+                    </div>
+                </div>
+
+                <div class="historia-item">
+                    <div class="historia-bolinha"></div>
+                    <div class="historia-conteudo">
+                        <span class="historia-ano">2023</span>
+                        <h4>Expansão</h4>
+                        <p>Chegamos a 200 máquinas e fechamos parceria com as principais redes de supermercados.</p>
+                    </div>
+                </div>
+
+                <div class="historia-item">
+                    <div class="historia-bolinha"></div>
+                    <div class="historia-conteudo">
+                        <span class="historia-ano">2024</span>
+                        <h4>Reconhecimento</h4>
+                        <p>Premiados como startup de impacto do ano e ultrapassamos 1.000 máquinas ativas.</p>
+                    </div>
+                </div>
+
+                <div class="historia-item">
+                    <div class="historia-bolinha historia-bolinha--ativo"></div>
+                    <div class="historia-conteudo">
+                        <span class="historia-ano">2025</span>
+                        <h4>Hoje</h4>
+                        <p>1.240 máquinas, 32 mil clientes ativos e 4,2 toneladas de alimentos salvos.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- TIME -->
+        <section class="time">
+
+            <div class="time-titulo">
+                <span class="eyebrow">Nosso time</span>
+                <h2>As pessoas por trás do AgilizaAê</h2>
+                <p>Um time diverso, apaixonado por tecnologia e impacto positivo.</p>
+            </div>
+
+            <!-- avatares sao so as iniciais com fundo colorido (inline style), nao temos foto de verdade do time ainda -->
+            <div class="time-grid">
+
+                <div class="membro">
+                    <div class="membro-avatar" style="background:#fff3ef; color:#ff5a1f;">RL</div>
+                    <h4>Rafael Lima</h4>
+                    <span>CEO & Co-fundador</span>
+                    <p>Ex-engenheiro da USP com 10 anos em logística e cadeia de suprimentos.</p>
+                </div>
+
+                <div class="membro">
+                    <div class="membro-avatar" style="background:#e8f5e9; color:#2e7d32;">CA</div>
+                    <h4>Carla Andrade</h4>
+                    <span>CTO & Co-fundadora</span>
+                    <p>Especialista em IoT e sistemas embarcados. Arquitetou toda a plataforma das máquinas.</p>
+                </div>
+
+                <div class="membro">
+                    <div class="membro-avatar" style="background:#e8f0fe; color:#1a56c4;">MS</div>
+                    <h4>Marcos Silva</h4>
+                    <span>Head de Operações</span>
+                    <p>Responsável pela logística de reabastecimento das máquinas em todo o Brasil.</p>
+                </div>
+
+                <div class="membro">
+                    <div class="membro-avatar" style="background:#fce4ec; color:#c2185b;">JP</div>
+                    <h4>Julia Pires</h4>
+                    <span>Head de Parcerias</span>
+                    <p>Gestora das relações com supermercados, restaurantes e parceiros de impacto.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- IMPACTO -->
+        <section class="impacto">
+
+            <div class="impacto-titulo">
+                <span class="eyebrow eyebrow--branco">Impacto</span>
+                <h2>Números que nos orgulham</h2>
+                <p>Cada compra no AgilizaAê é um passo em direção a um mundo com menos desperdício.</p>
+            </div>
+
+            <div class="impacto-grid">
+
+                <div class="impacto-item">
+                    <strong>4,2t</strong>
+                    <span>de alimentos salvos</span>
+                </div>
+
+                <div class="impacto-item">
+                    <strong>1.240</strong>
+                    <span>máquinas ativas</span>
+                </div>
+
+                <div class="impacto-item">
+                    <strong>32k</strong>
+                    <span>clientes satisfeitos</span>
+                </div>
+
+                <div class="impacto-item">
+                    <strong>98%</strong>
+                    <span>de satisfação</span>
+                </div>
+
+                <div class="impacto-item">
+                    <strong>12t</strong>
+                    <span>de CO₂ evitado</span>
+                </div>
+
+                <div class="impacto-item">
+                    <strong>R$2M</strong>
+                    <span>economizados pelos clientes</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CTA -->
+        <section class="sobre-cta">
+            <h2>Faça parte dessa história</h2>
+            <p>Seja como cliente, parceiro ou colaborador — há um lugar para você no AgilizaAê.</p>
+            <div class="sobre-cta-acoes">
+                <a href="maquinas.html" class="btn-principal">Localizar máquina →</a>
+                <a href="parceiros.html" class="btn-secundario">Seja um parceiro</a>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

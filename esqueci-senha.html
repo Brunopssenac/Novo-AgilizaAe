@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar senha - AgilizaAê</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="esqueci-senha.css">
+</head>
+
+<body class="auth-body">
+
+    <header class="header">
+
+        <div class="logo">
+            <a href="home.html">Agiliza<span>Aê</span></a>
+        </div>
+
+        <nav class="menu">
+            <a href="maquinas.html">Máquinas</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="parceiros.html">Parceiros</a>
+        </nav>
+
+        <div class="acoes">
+            <a href="login.html" class="btn-entrar">Entrar</a>
+        </div>
+
+    </header>
+
+    <main class="auth-main auth-main--centralizado">
+
+        <div class="auth-card auth-card--pequeno">
+
+            <!-- ══════════════════════════════ -->
+            <!-- TELA 1: FORMULÁRIO             -->
+            <!-- ══════════════════════════════ -->
+            <div id="tela-formulario">
+
+                <div class="auth-logo">
+                    <span class="auth-logo-icone">🔑</span>
+                    <h1>Agiliza<span>Aê</span></h1>
+                </div>
+
+                <div class="auth-titulo">
+                    <h2>Recuperar senha</h2>
+                    <p>Informe seu e-mail e enviaremos um link para criar uma nova senha</p>
+                </div>
+
+                <form id="formEsqueciSenha" novalidate>
+
+                    <div class="auth-secao">
+                        <div class="campo">
+                            <label for="email">E-mail cadastrado</label>
+                            <input id="email" type="email" placeholder="joao@email.com" autocomplete="email">
+                            <span class="erro" id="erro-email"></span>
+                        </div>
+                    </div>
+
+                    <div class="auth-acoes">
+                        <button type="submit" class="btn-auth" id="btnEnviar">
+                            <span class="btn-texto">Enviar link de recuperação</span>
+                            <span class="btn-loading" hidden>Enviando...</span>
+                        </button>
+                    </div>
+
+                    <p class="auth-link">
+                        Lembrou a senha? <a href="login.html">Voltar ao login</a>
+                    </p>
+
+                </form>
+
+            </div>
+
+            <!-- ══════════════════════════════ -->
+            <!-- TELA 2: CONFIRMAÇÃO            -->
+            <!-- ══════════════════════════════ -->
+            <div id="tela-confirmacao" class="es-confirmacao" hidden>
+
+                <div class="es-icone-envelope">
+                    <div class="es-envelope">✉️</div>
+                    <div class="es-ondas">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="auth-titulo">
+                    <h2>Verifique seu e-mail</h2>
+                    <p>Enviamos um link de recuperação para</p>
+                    <strong class="es-email-destino" id="emailDestino">—</strong>
+                </div>
+
+                <div class="es-instrucoes">
+                    <div class="es-instrucao-item">
+                        <span class="es-instrucao-num">1</span>
+                        <p>Abra o e-mail com o assunto <strong>"Recuperação de senha — AgilizaAê"</strong></p>
+                    </div>
+                    <div class="es-instrucao-item">
+                        <span class="es-instrucao-num">2</span>
+                        <p>Clique no botão <strong>"Criar nova senha"</strong> dentro do e-mail</p>
+                    </div>
+                    <div class="es-instrucao-item">
+                        <span class="es-instrucao-num">3</span>
+                        <p>Escolha uma senha com pelo menos <strong>8 caracteres</strong></p>
+                    </div>
+                </div>
+
+                <div class="es-aviso">
+                    <span>⏰</span>
+                    <p>O link expira em <strong>30 minutos</strong>. Não encontrou? Verifique a caixa de spam.</p>
+                </div>
+
+                <div class="es-acoes">
+                    <button class="btn-auth" id="btnReenviar">
+                        <span class="btn-texto">Reenviar e-mail</span>
+                        <span class="btn-loading" hidden>Reenviando...</span>
+                    </button>
+
+                    <a href="login.html" class="es-link-voltar">← Voltar ao login</a>
+                </div>
+
+                <p class="es-timer" id="esTimer"></p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="esqueci-senha.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localizar Máquinas - AgilizaAê</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="maquinas.css">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Leaflet JS — deve vir ANTES de maquina.js -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+    <!-- CARRINHO -->
+    <div id="carrinho" class="carrinho">
+
+        <div class="carrinho-header">
+            <h2>🛒 Seu Carrinho</h2>
+            <button onclick="fecharCarrinho()">✖</button>
+        </div>
+
+        <div id="listaCarrinho" class="carrinho-itens">
+            <div class="carrinho-vazio">
+                <span class="carrinho-vazio-icone">🛍️</span>
+                <p>Seu carrinho está vazio</p>
+                <small>Selecione uma máquina e adicione produtos</small>
+            </div>
+        </div>
+
+        <div class="carrinho-rodape">
+            <div class="carrinho-total">
+                <span>Total</span>
+                <strong id="totalCarrinho">R$ 0,00</strong>
+            </div>
+            <button class="btn-finalizar" id="btnFinalizar" disabled onclick="window.location.href='checkout.html'">
+                Finalizar Compra
+            </button>
+        </div>
+
+    </div>
+
+    <!-- OVERLAY -->
+    <div id="overlay" class="overlay" onclick="fecharCarrinho()"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">
+            <a href="home.html">Agiliza<span>Aê</span></a>
+        </div>
+
+        <nav class="menu">
+            <a href="maquinas.html" class="ativo">Máquinas</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="parceiros.html">Parceiros</a>
+        </nav>
+
+        <div class="acoes">
+            <button class="btn-carrinho" onclick="toggleCarrinho()">
+                🛒 Carrinho
+                <span class="badge-carrinho" id="badgeCarrinho" style="display:none">0</span>
+            </button>
+        </div>
+
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main class="pagina-maquinas">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="busca">
+                <div class="busca-wrapper">
+                    <span class="busca-icone">🔍</span>
+                    <input type="text" id="inputBusca" placeholder="Buscar por bairro ou número...">
+                    <button class="busca-limpar" id="btnLimparBusca" style="display:none">✕</button>
+                </div>
+            </div>
+
+            <div class="filtros">
+                <button class="filtro ativo" data-filtro="todos">Todos</button>
+                <button class="filtro" data-filtro="proximos">Próximos</button>
+                <button class="filtro" data-filtro="promocao">Promoção</button>
+                <button class="filtro" data-filtro="esg">ESG</button>
+            </div>
+
+            <p class="sidebar-label">Máquinas disponíveis</p>
+
+            <div class="lista-maquinas" id="listaMaquinas">
+
+                <div class="maquina ativa" data-id="042" data-bairro="paulista" data-tags="promocao esg">
+                    <div class="maquina-info">
+                        <h3>#042 Av. Paulista</h3>
+                        <p>📍 Estação Paulista</p>
+                    </div>
+                    <div class="maquina-meta">
+                        <span class="tag-promocao">🔥 Promoção</span>
+                        <span class="maquina-dist">0,3 km</span>
+                    </div>
+                </div>
+
+                <div class="maquina" data-id="031" data-bairro="itaim faria lima" data-tags="proximos">
+                    <div class="maquina-info">
+                        <h3>#031 Faria Lima</h3>
+                        <p>📍 Itaim Bibi</p>
+                    </div>
+                    <div class="maquina-meta">
+                        <span class="tag-normal">✅ Disponível</span>
+                        <span class="maquina-dist">1,1 km</span>
+                    </div>
+                </div>
+
+                <div class="maquina" data-id="017" data-bairro="paulista masp" data-tags="esg promocao">
+                    <div class="maquina-info">
+                        <h3>#017 MASP</h3>
+                        <p>📍 Av. Paulista</p>
+                    </div>
+                    <div class="maquina-meta">
+                        <span class="tag-esg">🌱 ESG</span>
+                        <span class="maquina-dist">0,8 km</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="nenhuma-maquina" id="nenhumaMaquina" style="display:none">
+                Nenhuma máquina encontrada.
+            </p>
+
+        </aside>
+
+        <!-- ÁREA PRINCIPAL -->
+        <section class="conteudo-area">
+
+            <!-- ABAS MAPA / PRODUTOS -->
+            <div class="vista-tabs">
+                <button class="vista-tab ativo" id="btnMapa" onclick="alternarVista('mapa')">
+                    🗺 Mapa
+                </button>
+                <button class="vista-tab" id="btnProdutos" onclick="alternarVista('produtos')">
+                    📦 Produtos
+                </button>
+            </div>
+
+            <!-- PAINEL: MAPA -->
+            <div id="painelMapa" class="painel-vista">
+                <div id="mapa"></div>
+            </div>
+
+            <!-- PAINEL: PRODUTOS -->
+            <div id="painelProdutos" class="painel-vista" style="display:none">
+
+                <div class="produtos-topo">
+                    <div class="produtos-topo-info">
+                        <h2 id="tituloProdutos">Produtos disponíveis</h2>
+                        <p id="subtituloProdutos" class="produtos-subtitulo"></p>
+                    </div>
+                    <div class="produtos-topo-acoes">
+                        <select id="ordenacao" class="select-ordenar">
+                            <option value="padrao">Ordenar por</option>
+                            <option value="preco-asc">Menor preço</option>
+                            <option value="preco-desc">Maior preço</option>
+                            <option value="desconto">Maior desconto</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid-produtos" id="gridProdutos"></div>
+
+                <div class="produtos-vazio" id="produtosVazio" style="display:none">
+                    <span>📦</span>
+                    <p>Nenhum produto disponível nesta máquina.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="maquina.js"></script>
+
+</body>
+
+</html>
